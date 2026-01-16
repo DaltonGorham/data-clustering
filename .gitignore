@@ -2,3 +2,7 @@ build/*
 build
 .cache*
 .cache/*
+.vscode/*
+.idea/*
+.DS_Store
+*.log
