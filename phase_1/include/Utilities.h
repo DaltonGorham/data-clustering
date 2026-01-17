@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <filesystem>
 
  enum ArgumentPositions {
     INPUT_FILE = 1,
@@ -30,6 +31,11 @@ class Utilities {
             }
         }
         static void validateArgTypes(char* argv[]) {
+            if (!validateInputFile(argv[INPUT_FILE])) {
+                std::cerr << "Error: Input file does not exist relative to the executable.\n";
+                std::cerr << "Error: Please provide a valid file path or place the file in the correct directory.\n";
+                std::exit(1);
+            }
             if (!validateClusters(argv[NUMBER_OF_CLUSTERS])) {
                 std::cerr << "number_of_clusters must be an integer greater than 1.\n";
                 std::exit(1);
@@ -46,6 +52,9 @@ class Utilities {
                 std::cerr << "number_of_runs must be a positive integer.\n";
                 std::exit(1);
             }
+        }
+        static bool validateInputFile(const char* arg) {
+            return std::filesystem::exists(arg);
         }
         static bool validateClusters(char* arg) {
             std::string str = arg;
