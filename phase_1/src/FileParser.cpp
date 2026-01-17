@@ -2,7 +2,7 @@
 #include <fstream>
 #include <stdexcept>
 
-std::vector<std::string> FileParser::parseFile(const std::string& filePath) {
+std::vector<std::string> FileParser::readFile(const std::string& filePath) {
     std::vector<std::string> lines;
     std::ifstream file(filePath);
     

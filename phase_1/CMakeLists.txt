@@ -7,4 +7,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(data_clustering
     src/main.cpp
     src/FileParser.cpp
+    src/Dataset.cpp
 )
