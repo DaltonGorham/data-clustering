@@ -1,12 +1,18 @@
 #include "../include/Dataset.h"
 #include "../include/FileParser.h"
-#include <stdexcept>
 #include <sstream>
+#include <fstream>
 #include <ranges>
+#include <random>
+#include <set>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
     if (lines.empty()) {
-        throw std::runtime_error("File is empty or has no valid data.");
+        std::cerr << "Error: Input file is empty or improperly formatted.\n";
+        std::exit(1);
     }
 
     // we expect the first line to contain metadata: number of points and dimensions
@@ -15,11 +21,13 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
     headerStream >> numOfPoints >> dimensions;
 
     if (numOfPoints <= 0 || dimensions <= 0) {
-        throw std::runtime_error("Invalid dataset metadata: number of points and dimensions must be positive integers.");
+        std::cerr << "Error: Invalid dataset metadata: number of points: " << numOfPoints 
+                  << ", dimensions: " << dimensions << " must be positive integers.\n";
+        std::exit(1);
     }
 
     std::vector<std::vector<double>> dataPoints;
-    // we dont need the header line anymore
+
     for (const auto& line : lines | std::views::drop(1)) {
         std::istringstream lineStream(line);
         std::vector<double> point;
@@ -29,18 +37,66 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
         }
         dataPoints.push_back(point);
     }
+
+    if (dataPoints.size() != numOfPoints) {
+        std::cerr << "Error: Mismatch between declared number of points: " << numOfPoints 
+                  << " and actual data points read: " << dataPoints.size() << "\n";
+        std::exit(1);
+    }
     return Dataset(numOfPoints, dimensions, dataPoints);
 }
 
-std::vector<std::vector<double>> Dataset::selectRandomClusterCenters(int k) {
-    if (k > m_numOfPoints) {
-        throw std::runtime_error("Number of clusters cannot exceed number of data points.");
+std::set<int> Dataset::selectRandomIndices(int k) {
+    std::set<int> uniqueIndices;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> uid(0, m_numOfPoints - 1);
+    while (uniqueIndices.size() < k) {
+        uniqueIndices.insert(uid(gen));
     }
-    
-    std::vector<std::vector<double>> centers;
-    // we need to choose random indices. use actual points, dont create random points. 
-    // use them from dataPoints. which is a vector of the data points.
+    return uniqueIndices;
+}
 
+void Dataset::setRandomClusterCenters(int k) {
+    std::set<int> selectedIndices = selectRandomIndices(k);
+    for (auto index : selectedIndices) {
+        m_clusterCenters.push_back(m_dataPoints[index]);
+    }
+}
+
+std::vector<std::vector<double>> Dataset::getRandomClusterCenters(int k) {
+    if (k > m_numOfPoints) {
+        std::cerr << "Error: Number of clusters requested: " << k 
+                    << " exceeds number of data points: " << m_numOfPoints << "\n";
+        std::exit(1);
+    }
+    setRandomClusterCenters(k);
+    return m_clusterCenters;
+}
+
+void Dataset::outputClusterCenters(std::vector<std::vector<double>> clusterCenters, const std::string& inputFile) const {
+    if (!fs::exists("output")) {
+        fs::create_directory("output");
+    }
+
+    fs::path inputPath(inputFile);
+    std::string outputPath = "output/" + inputPath.stem().string() + "_output.txt";
+    std::ofstream outputFile(outputPath);
+
+    if (!outputFile.is_open()) {
+        std::cerr << "Error: Could not open output file: " << outputPath << "\n";
+        return;
+    }
+
+    for (const auto& center : clusterCenters) {
+        for (const auto& value : center) {
+            std::cout << value << " ";
+            outputFile << value << " ";
+        }
+        std::cout << "\n";
+        outputFile << "\n";
+    }
+    outputFile.close();
 }
 
 void Dataset::printDataset() const {

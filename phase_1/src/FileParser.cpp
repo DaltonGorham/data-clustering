@@ -1,13 +1,13 @@
 #include "../include/FileParser.h"
 #include <fstream>
-#include <stdexcept>
 
 std::vector<std::string> FileParser::readFile(const std::string& filePath) {
     std::vector<std::string> lines;
     std::ifstream file(filePath);
     
     if (!file.is_open()) {
-        throw std::runtime_error("Could not open file: " + filePath);
+        std::cerr << "Error: Unable to open file: " << filePath << "\n";
+        std::exit(1);
     }
     
     std::string line;
