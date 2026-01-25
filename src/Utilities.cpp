@@ -17,7 +17,7 @@ void Utilities::validateNumberOfArgs(int argc, char* argv[], int expectedArgs) {
             << " <max_iterations>"
             << " <convergence_threshold>"
             << " <number_of_runs>\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
 }
 
@@ -25,23 +25,23 @@ void Utilities::validateArgTypes(char* argv[]) {
     if (!validateInputFile(argv[INPUT_FILE])) {
         std::cerr << "Error: Input file: " << "`" << argv[INPUT_FILE] << "` does not exist relative to the executable.\n";
         std::cerr << "Error: Please provide a valid file path or place the file in the correct directory.\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
     if (!validateClusters(argv[NUMBER_OF_CLUSTERS])) {
         std::cerr << "number_of_clusters: " << "`" << argv[NUMBER_OF_CLUSTERS] << "` must be an integer greater than 1.\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
     if (!validateIterations(argv[MAX_ITERATIONS])) {
         std::cerr << "max_iterations: " << "`" << argv[MAX_ITERATIONS] << "` must be a positive integer.\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
     if (!validateThreshold(argv[CONVERGENCE_THRESHOLD])) {
         std::cerr << "convergence_threshold: " << "`" << argv[CONVERGENCE_THRESHOLD] << "` must be a positive real number.\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
     if (!validateRuns(argv[NUMBER_OF_RUNS])) {
         std::cerr << "number_of_runs: " << "`" << argv[NUMBER_OF_RUNS] << "` must be a positive integer.\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
 }
 

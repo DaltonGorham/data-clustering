@@ -12,7 +12,7 @@ namespace fs = std::filesystem;
 Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
     if (lines.empty()) {
         std::cerr << "Error: Input file is empty or improperly formatted.\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
 
     // we expect the first line to contain metadata: number of points and dimensions
@@ -23,7 +23,7 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
     if (numOfPoints <= 0 || dimensions <= 0) {
         std::cerr << "Error: Invalid dataset metadata: number of points: " << numOfPoints 
                   << ", dimensions: " << dimensions << " must be positive integers.\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
 
     DataPoints dataPoints;
@@ -41,7 +41,7 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
     if (dataPoints.size() != numOfPoints) {
         std::cerr << "Error: Mismatch between declared number of points: " << numOfPoints 
                   << " and actual data points read: " << dataPoints.size() << "\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
     return Dataset(numOfPoints, dimensions, dataPoints);
 }
@@ -68,7 +68,7 @@ DataPoints Dataset::getRandomClusterCenters(int numOfClusters) {
     if (numOfClusters > m_numOfPoints) {
         std::cerr << "Error: Number of clusters requested: " << numOfClusters
                     << " exceeds number of data points: " << m_numOfPoints << "\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
     setRandomClusterCenters(numOfClusters);
     return m_clusterCenters;
