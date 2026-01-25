@@ -8,4 +8,5 @@ add_executable(data_clustering
     src/main.cpp
     src/FileParser.cpp
     src/Dataset.cpp
+    src/Utilities.cpp
 )
