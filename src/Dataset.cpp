@@ -46,31 +46,31 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
     return Dataset(numOfPoints, dimensions, dataPoints);
 }
 
-std::set<int> Dataset::selectRandomIndices(int k) {
+std::set<int> Dataset::selectRandomIndices(int numOfClusters) {
     std::set<int> uniqueIndices;
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> uid(0, m_numOfPoints - 1);
-    while (uniqueIndices.size() < k) {
-        uniqueIndices.insert(uid(gen));
+    std::random_device randomDevice;
+    std::mt19937 generator(randomDevice());
+    std::uniform_int_distribution<int> distribution(0, m_numOfPoints - 1);
+    while (uniqueIndices.size() < numOfClusters) {
+        uniqueIndices.insert(distribution(generator));
     }
     return uniqueIndices;
 }
 
-void Dataset::setRandomClusterCenters(int k) {
-    std::set<int> selectedIndices = selectRandomIndices(k);
+void Dataset::setRandomClusterCenters(int numOfClusters) {
+    std::set<int> selectedIndices = selectRandomIndices(numOfClusters);
     for (auto index : selectedIndices) {
         m_clusterCenters.push_back(m_dataPoints[index]);
     }
 }
 
-std::vector<std::vector<double>> Dataset::getRandomClusterCenters(int k) {
-    if (k > m_numOfPoints) {
-        std::cerr << "Error: Number of clusters requested: " << k 
+std::vector<std::vector<double>> Dataset::getRandomClusterCenters(int numOfClusters) {
+    if (numOfClusters > m_numOfPoints) {
+        std::cerr << "Error: Number of clusters requested: " << numOfClusters
                     << " exceeds number of data points: " << m_numOfPoints << "\n";
         std::exit(1);
     }
-    setRandomClusterCenters(k);
+    setRandomClusterCenters(numOfClusters);
     return m_clusterCenters;
 }
 

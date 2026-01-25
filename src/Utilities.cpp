@@ -45,43 +45,43 @@ void Utilities::validateArgTypes(char* argv[]) {
     }
 }
 
-bool Utilities::validateInputFile(const char* arg) {
-    return std::filesystem::exists(arg);
+bool Utilities::validateInputFile(const char* filePath) {
+    return std::filesystem::exists(filePath);
 }
 
-bool Utilities::validateClusters(char* arg) {
-    std::string str = arg;
-    for (const auto& c : str) {
+bool Utilities::validateClusters(char* clusterArg) {
+    std::string argString = clusterArg;
+    for (const auto& c : argString) {
         if (!std::isdigit(c)) return false;
     }
-    return std::stoi(str) > 1;
+    return std::stoi(argString) > 1;
 }
 
-bool Utilities::validateIterations(char* arg) {
-    std::string str = arg;
-    for (const auto& c : str) {
+bool Utilities::validateIterations(char* iterationsArg) {
+    std::string argString = iterationsArg;
+    for (const auto& c : argString) {
         if (!std::isdigit(c)) return false;
     }
-    return std::stoi(str) > 0;
+    return std::stoi(argString) > 0;
 }
 
-bool Utilities::validateThreshold(char* arg) {
-    std::string str = arg;
+bool Utilities::validateThreshold(char* thresholdArg) {
+    std::string argString = thresholdArg;
     size_t pos;
     float threshold;
     try {
-        threshold = std::stof(str, &pos);
-        if (pos != str.length()) return false;
+        threshold = std::stof(argString, &pos);
+        if (pos != argString.length()) return false;
     } catch (...) {
         return false;
     }
     return threshold > 0.0f;
 }
 
-bool Utilities::validateRuns(char* arg) {
-    std::string str = arg;
-    for (const auto& c : str) {
+bool Utilities::validateRuns(char* runsArg) {
+    std::string argString = runsArg;
+    for (const auto& c : argString) {
         if (!std::isdigit(c)) return false;
     }
-    return std::stoi(str) > 0;
+    return std::stoi(argString) > 0;
 }
