@@ -26,7 +26,7 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
         std::exit(1);
     }
 
-    std::vector<std::vector<double>> dataPoints;
+    DataPoints dataPoints;
 
     for (const auto& line : lines | std::views::drop(1)) {
         std::istringstream lineStream(line);
@@ -64,7 +64,7 @@ void Dataset::setRandomClusterCenters(int numOfClusters) {
     }
 }
 
-std::vector<std::vector<double>> Dataset::getRandomClusterCenters(int numOfClusters) {
+DataPoints Dataset::getRandomClusterCenters(int numOfClusters) {
     if (numOfClusters > m_numOfPoints) {
         std::cerr << "Error: Number of clusters requested: " << numOfClusters
                     << " exceeds number of data points: " << m_numOfPoints << "\n";
@@ -74,7 +74,7 @@ std::vector<std::vector<double>> Dataset::getRandomClusterCenters(int numOfClust
     return m_clusterCenters;
 }
 
-void Dataset::outputClusterCenters(std::vector<std::vector<double>> clusterCenters, const std::string& inputFile) const {
+void Dataset::outputClusterCenters(DataPoints clusterCenters, const std::string& inputFile) const {
     if (!fs::exists("output")) {
         fs::create_directory("output");
     }

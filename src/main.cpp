@@ -14,6 +14,6 @@ int main(int argc, char* argv[]) {
     Utilities::validateArgs(argc, argv, ARGS);
     auto lines = FileParser::readFile(argv[INPUT_FILE]);
     Dataset dataset = FileParser::parseFileContents(lines);
-    std::vector<std::vector<double>> clusterCenters = dataset.getRandomClusterCenters(std::stoi(argv[NUMBER_OF_CLUSTERS]));
+    DataPoints clusterCenters = dataset.getRandomClusterCenters(std::stoi(argv[NUMBER_OF_CLUSTERS]));
     dataset.outputClusterCenters(clusterCenters, argv[INPUT_FILE]);
 }
