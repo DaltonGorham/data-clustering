@@ -73,14 +73,14 @@ bool Utilities::validateIterations(char* iterationsArg) {
 bool Utilities::validateThreshold(char* thresholdArg) {
     std::string argString = thresholdArg;
     size_t pos;
-    float threshold;
+    double threshold;
     try {
-        threshold = std::stof(argString, &pos);
+        threshold = std::stod(argString, &pos);
         if (pos != argString.length()) return false;
     } catch (...) {
         return false;
     }
-    return threshold > 0.0f;
+    return threshold > 0.0;
 }
 
 bool Utilities::validateRuns(char* runsArg) {
