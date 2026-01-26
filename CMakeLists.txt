@@ -9,4 +9,5 @@ add_executable(data_clustering
     src/FileParser.cpp
     src/Dataset.cpp
     src/Utilities.cpp
+    src/KMeans.cpp
 )
