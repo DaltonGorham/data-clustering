@@ -19,7 +19,8 @@ class KMeans {
         KMeans(int numOfClusters, int maxIterations, double convergenceThreshold, DataPoints initialCenters)
             : m_numOfClusters(numOfClusters), m_maxIterations(maxIterations), m_convergenceThreshold(convergenceThreshold),
               m_clusterCenters(initialCenters) {}
-            int getClosestClusterCenter(const std::vector<double>& point, const DataPoints& clusterCenters);
-            const double getSSE() const { return m_SSE; }
-            const DataPoints& getClusterCenters() const { return m_clusterCenters; }
+        void run(const Dataset& dataset);    
+        int getClosestClusterCenter(const std::vector<double>& point, const DataPoints& clusterCenters);
+        const double getSSE() const { return m_SSE; }
+        const DataPoints& getClusterCenters() const { return m_clusterCenters; }
 };
