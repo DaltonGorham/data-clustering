@@ -9,6 +9,17 @@
 #include <string>
 #include <filesystem>
 
+Config Config::parseArgs(int argc, char* argv[]) {
+    Utilities::validateArgs(argc, argv, EXPECTED_ARGS);
+    return {
+        argv[INPUT_FILE],
+        std::stoi(argv[NUMBER_OF_CLUSTERS]),
+        std::stoi(argv[MAX_ITERATIONS]),
+        std::stod(argv[CONVERGENCE_THRESHOLD]),
+        std::stoi(argv[NUMBER_OF_RUNS])
+    };
+}
+
 void Utilities::validateArgs(int argc, char* argv[], int expectedArgs) {
     validateNumberOfArgs(argc, argv, expectedArgs);
     validateArgTypes(argv);

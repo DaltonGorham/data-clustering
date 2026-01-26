@@ -4,6 +4,9 @@
     C++ language standard version: C++20
 */
 #pragma once
+#include <string>
+
+const int EXPECTED_ARGS = 6;
 
 enum ArgumentPositions {
     INPUT_FILE = 1,
@@ -11,6 +14,16 @@ enum ArgumentPositions {
     MAX_ITERATIONS,
     CONVERGENCE_THRESHOLD,
     NUMBER_OF_RUNS
+};
+
+struct Config {
+    std::string inputFile;
+    int numOfClusters;
+    int maxIterations;
+    double convergenceThreshold;
+    int numOfRuns;
+
+    static Config parseArgs(int argc, char* argv[]);
 };
 
 class Utilities {
