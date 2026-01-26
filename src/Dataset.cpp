@@ -79,7 +79,7 @@ DataPoints Dataset::getRandomClusterCenters(int numOfClusters) {
     return m_clusterCenters;
 }
 
-void Dataset::outputClusterCenters(DataPoints clusterCenters, const std::string& inputFile) const {
+void Dataset::outputClusterCenters(const DataPoints& clusterCenters, const std::string& inputFile) const {
     if (!fs::exists("output")) {
         fs::create_directory("output");
     }

@@ -22,6 +22,6 @@ class KMeans {
               m_numOfRuns(numOfRuns), m_clusterCenters(initialCenters) {}
         void run(const Dataset& dataset);    
         int getClosestClusterCenter(const std::vector<double>& point, const DataPoints& clusterCenters);
-        const double getSSE() const { return m_SSE; }
+        double getSSE() const { return m_SSE; }
         const DataPoints& getClusterCenters() const { return m_clusterCenters; }
 };

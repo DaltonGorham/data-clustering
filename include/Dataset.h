@@ -24,7 +24,7 @@ class Dataset {
         Dataset(int numOfPoints, int dimensions, const DataPoints& dataPoints)
             : m_numOfPoints(numOfPoints), m_dimensions(dimensions), m_dataPoints(dataPoints) {}
         void printDataset() const;
-        void outputClusterCenters(DataPoints clusterCenters, const std::string& inputFile) const;
+        void outputClusterCenters(const DataPoints& clusterCenters, const std::string& inputFile) const;
         int getNumOfPoints() const { return m_numOfPoints; }
         int getDimensions() const { return m_dimensions; }
         const DataPoints& getDataPoints() const { return m_dataPoints; }

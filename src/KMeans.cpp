@@ -78,6 +78,6 @@ void KMeans::run(const Dataset& dataset) {
             }
             std::cout << "\n";
         }
-        std:: cout << "======================\n";
+        std::cout << "======================\n";
     }
 }
