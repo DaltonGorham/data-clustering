@@ -6,15 +6,12 @@
 #include "../include/Dataset.h"
 #include "../include/FileParser.h"
 #include <sstream>
-#include <fstream>
 #include <ranges>
 #include <random>
 #include <set>
-#include <filesystem>
 
-namespace fs = std::filesystem;
 
-Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
+Dataset FileParser::parseFileContents(const std::vector<std::string>& lines, const std::string& inputFile) {
     if (lines.empty()) {
         std::cerr << "Error: Input file is empty or improperly formatted.\n";
         std::exit(EXIT_FAILURE);
@@ -48,10 +45,11 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
                   << " and actual data points read: " << dataPoints.size() << "\n";
         std::exit(EXIT_FAILURE);
     }
-    return Dataset(numOfPoints, dimensions, dataPoints);
+    return Dataset(numOfPoints, dimensions, dataPoints, inputFile);
 }
 
-std::set<int> Dataset::selectRandomIndices(int numOfClusters) {
+
+std::set<int> Dataset::selectRandomIndices(int numOfClusters) const {
     std::set<int> uniqueIndices;
     std::random_device randomDevice;
     std::mt19937 generator(randomDevice());
@@ -62,47 +60,22 @@ std::set<int> Dataset::selectRandomIndices(int numOfClusters) {
     return uniqueIndices;
 }
 
-void Dataset::setRandomClusterCenters(int numOfClusters) {
-    std::set<int> selectedIndices = selectRandomIndices(numOfClusters);
-    for (auto index : selectedIndices) {
-        m_clusterCenters.push_back(m_dataPoints[index]);
-    }
-}
 
-DataPoints Dataset::getRandomClusterCenters(int numOfClusters) {
+DataPoints Dataset::getRandomClusterCenters(int numOfClusters) const {
     if (numOfClusters > m_numOfPoints) {
         std::cerr << "Error: Number of clusters requested: " << numOfClusters
                     << " exceeds number of data points: " << m_numOfPoints << "\n";
         std::exit(EXIT_FAILURE);
     }
-    setRandomClusterCenters(numOfClusters);
-    return m_clusterCenters;
+    
+    std::set<int> selectedIndices = selectRandomIndices(numOfClusters);
+    DataPoints clusterCenters;
+    for (auto index : selectedIndices) {
+        clusterCenters.push_back(m_dataPoints[index]);
+    }
+    return clusterCenters;
 }
 
-void Dataset::outputClusterCenters(const DataPoints& clusterCenters, const std::string& inputFile) const {
-    if (!fs::exists("output")) {
-        fs::create_directory("output");
-    }
-
-    fs::path inputPath(inputFile);
-    std::string outputPath = "output/" + inputPath.stem().string() + "_output.txt";
-    std::ofstream outputFile(outputPath);
-
-    if (!outputFile.is_open()) {
-        std::cerr << "Error: Could not open output file: " << outputPath << "\n";
-        return;
-    }
-
-    for (const auto& center : clusterCenters) {
-        for (const auto& value : center) {
-            std::cout << value << " ";
-            outputFile << value << " ";
-        }
-        std::cout << "\n";
-        outputFile << "\n";
-    }
-    outputFile.close();
-}
 
 void Dataset::printDataset() const {
     std::cout << "Number of Points: " << m_numOfPoints << "\n";

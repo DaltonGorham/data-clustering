@@ -11,5 +11,5 @@
 class FileParser {
     public:
         static std::vector<std::string> readFile(const std::string& filePath);
-        static Dataset parseFileContents(const std::vector<std::string>& lines);
+        static Dataset parseFileContents(const std::vector<std::string>& lines, const std::string& inputFile = "");
 };

@@ -12,9 +12,8 @@ int main(int argc, char* argv[]) {
     auto config = Config::parseArgs(argc, argv);
 
     auto lines = FileParser::readFile(config.inputFile);
-    Dataset dataset = FileParser::parseFileContents(lines);
-    DataPoints clusterCenters = dataset.getRandomClusterCenters(config.numOfClusters);
+    Dataset dataset = FileParser::parseFileContents(lines, config.inputFile);
     KMeans kmeans(config.numOfClusters, config.maxIterations,
-                  config.convergenceThreshold, config.numOfRuns, clusterCenters);
+                  config.convergenceThreshold, config.numOfRuns);
     kmeans.run(dataset);
 }

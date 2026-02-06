@@ -8,6 +8,10 @@
 #include <cstdlib>
 #include <string>
 #include <filesystem>
+#include <fstream>
+
+namespace fs = std::filesystem;
+
 
 Config Config::parseArgs(int argc, char* argv[]) {
     Utilities::validateArgs(argc, argv, EXPECTED_ARGS);
@@ -100,4 +104,22 @@ bool Utilities::validateRuns(char* runsArg) {
         if (!std::isdigit(c)) return false;
     }
     return std::stoi(argString) > 0;
+}
+
+void Utilities::writeToFile(const std::string& inputFile, const std::string& lines) {
+    if (!fs::exists("output")) {
+        fs::create_directory("output");
+    }
+
+    fs::path inputPath(inputFile);
+    std::string outputPath = "output/" + inputPath.stem().string() + "_output.txt";
+    std::ofstream outputFile(outputPath);
+
+    if (!outputFile.is_open()) {
+        std::cerr << "Error: Could not open output file: " << outputPath << "\n";
+        return;
+    }
+    
+    outputFile << lines;
+    outputFile.close();
 }
