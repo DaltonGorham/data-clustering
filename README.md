@@ -3,7 +3,7 @@
 ## Build (g++)
 
 ```bash
-g++ -std=c++20 -o data_clustering src/*.cpp
+g++ -std=c++20 -O2 -o data_clustering src/*.cpp
 ```
 
 Run: `./data_clustering <input_file> <clusters> <max_iter> <threshold> <runs>`

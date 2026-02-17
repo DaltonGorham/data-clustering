@@ -10,6 +10,10 @@
 #include <map>
 #include <cmath>
 
+/*
+    d = sqrt( (x1-y1)² + (x2-y2)² + ... + (xn-yn)²)
+    intentionally not using sqrt(), the algorithm may not converge.
+*/
 double KMeans::getEuclideanDistance(const std::vector<double>& point, const std::vector<double>& centroid) {
     double distance = 0.0;
     for (int i = 0; i < point.size(); i++ ) {
@@ -18,13 +22,8 @@ double KMeans::getEuclideanDistance(const std::vector<double>& point, const std:
     return distance;
 }
 
-int KMeans::getClosestClusterCenter(const std::vector<double>& point, const DataPoints& clusterCenters) {
-    if (clusterCenters.empty()) {
-        std::cerr << "Error: Cluster centers are empty." << "\n";
-        std::cerr << "Cannot determine the closest cluster center." << "\n";
-        exit(EXIT_FAILURE);
-    }
 
+std::pair<int, double> KMeans::getClosestClusterCenter(const std::vector<double>& point, const DataPoints& clusterCenters) {
     int closestIndex = 0;
     double minDistance = getEuclideanDistance(point, clusterCenters[0]);
 
@@ -35,36 +34,43 @@ int KMeans::getClosestClusterCenter(const std::vector<double>& point, const Data
             closestIndex = i;
         }
     }
-    return closestIndex;
+    return {closestIndex, minDistance};
 }
 
-void KMeans::updateClusterCenters(std::map<int, DataPoints>& clusters, int dimensions) {
 
-    if (clusters.empty()) {
-        std::cerr << "Error: No clusters to update." << "\n";
-        std::cerr << "Cannot update cluster centers." << "\n";
-        exit(EXIT_FAILURE);
+/*
+    Updates cluster centers by computing the mean of all data points assigned to each cluster.
+
+    clusterCenterIndices - cluster assignment per point (e.g., clusterCenterIndices[0] = 2 means point 0 belongs to cluster 2)
+    dataPoints           - the original dataset points
+    dimensions           - number of dimensions in the dataset
+*/
+void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const DataPoints& dataPoints, int dimensions) {
+
+    DataPoints newCenters(m_numOfClusters, std::vector<double>(dimensions, 0.0));
+    std::vector<int> counts(m_numOfClusters, 0);
+    
+    for (int pointIndex = 0; pointIndex < clusterCenterIndices.size(); pointIndex++) {
+        int cluster = clusterCenterIndices[pointIndex];
+        counts[cluster]++;
+        for (int d = 0; d < dimensions; d++) {
+            newCenters[cluster][d] += dataPoints[pointIndex][d];
+        }
     }
 
-    for (const auto& [clusterIndex, points] : clusters) {
-        std::vector<double> newCenter(dimensions, 0.0);
-        for (const auto& point : points) {
-            for (int i = 0; i < dimensions; i++) {
-                newCenter[i] += point[i];
-            }
+    for (int cluster = 0; cluster < m_numOfClusters; cluster++) {
+        for (int d = 0; d < dimensions; d++) {
+            newCenters[cluster][d] /= counts[cluster];
         }
-        for (int i = 0; i < dimensions; i++) {
-            newCenter[i] /= points.size();
-        }
-        m_clusterCenters[clusterIndex] = newCenter;
+        m_clusterCenters[cluster] = newCenters[cluster];
     }
 }
-
 
 void KMeans::run(const Dataset& dataset) {
     m_clusterCenters = dataset.getRandomClusterCenters(m_numOfClusters);
     int dimensions = dataset.getDimensions();
-    std::map<int, DataPoints> clusters;
+    const auto& points = dataset.getDataPoints();
+    std::vector<int> clusterCenterIndices(points.size());
     std::map<int, double> bestRunMap;
     std::string output = "";
     double sse = 0.0;
@@ -83,22 +89,16 @@ void KMeans::run(const Dataset& dataset) {
         sse = 0.0;  
         
         while (iteration < m_maxIterations && !converged) {
-            clusters.clear();
-            
-            for (const auto& point : dataset.getDataPoints()) {
-                int closestCluster = getClosestClusterCenter(point, m_clusterCenters);
-                clusters[closestCluster].push_back(point);
-            }
-            
-            updateClusterCenters(clusters, dimensions);
-            
             double newSSE = 0.0;
-            for (const auto& [clusterIndex, points] : clusters) {
-                for (const auto& point : points) {
-                    newSSE += getEuclideanDistance(point, m_clusterCenters[clusterIndex]);
-                }
-            }
 
+            for (int point = 0; point < points.size(); point++) {
+                auto [cluster, distance] = getClosestClusterCenter(points[point], m_clusterCenters);
+                clusterCenterIndices[point] = cluster;
+                newSSE += distance;
+            }
+            
+            updateClusterCenters(clusterCenterIndices, points, dimensions);
+            
             output += "Iteration " + std::to_string(iteration + 1) + ": SSE = " + std::to_string(newSSE) + "\n";
             
             if (iteration > 0) {
@@ -113,6 +113,7 @@ void KMeans::run(const Dataset& dataset) {
 
     double bestSSE = bestRunMap.begin()->second;
     int bestRun = 0;
+    
     for (const auto& [run, runSSE] : bestRunMap) {
         if (runSSE < bestSSE) {
             bestSSE = runSSE;
