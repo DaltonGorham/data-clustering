@@ -102,7 +102,7 @@ void KMeans::run(const Dataset& dataset) {
             output += "Iteration " + std::to_string(iteration + 1) + ": SSE = " + std::to_string(newSSE) + "\n";
             
             if (iteration > 0) {
-                converged = std::abs(sse - newSSE) < m_convergenceThreshold;
+                converged = (sse - newSSE) / sse < m_convergenceThreshold;
             }
             sse = newSSE;
             iteration++;
@@ -122,6 +122,6 @@ void KMeans::run(const Dataset& dataset) {
     }
     
     m_SSE = bestSSE;
-    output += "Best Run: " + std::to_string(bestRun + 1) + ", SSE = " + std::to_string(bestSSE) + "\n";
+    output += "Best Run: " + std::to_string(bestRun + 1) + ": SSE = " + std::to_string(bestSSE) + "\n";
     Utilities::writeToFile(dataset.getInputFile(), output);
 }

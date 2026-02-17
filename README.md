@@ -1,7 +1,7 @@
 # Data Clustering
 
 ## Build (g++)
-
+- optimize the compiler for faster execution speeds
 ```bash
 g++ -std=c++20 -O2 -o data_clustering src/*.cpp
 ```
