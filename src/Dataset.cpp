@@ -1,18 +1,20 @@
+/*
+    Coding Standards: C++ Core Guidelines
+    https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+    C++ language standard version: C++20
+*/
 #include "../include/Dataset.h"
 #include "../include/FileParser.h"
 #include <sstream>
-#include <fstream>
 #include <ranges>
 #include <random>
 #include <set>
-#include <filesystem>
 
-namespace fs = std::filesystem;
 
-Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
+Dataset FileParser::parseFileContents(const std::vector<std::string>& lines, const std::string& inputFile) {
     if (lines.empty()) {
         std::cerr << "Error: Input file is empty or improperly formatted.\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
 
     // we expect the first line to contain metadata: number of points and dimensions
@@ -23,10 +25,10 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
     if (numOfPoints <= 0 || dimensions <= 0) {
         std::cerr << "Error: Invalid dataset metadata: number of points: " << numOfPoints 
                   << ", dimensions: " << dimensions << " must be positive integers.\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
 
-    std::vector<std::vector<double>> dataPoints;
+    DataPoints dataPoints;
 
     for (const auto& line : lines | std::views::drop(1)) {
         std::istringstream lineStream(line);
@@ -41,63 +43,39 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines) {
     if (dataPoints.size() != numOfPoints) {
         std::cerr << "Error: Mismatch between declared number of points: " << numOfPoints 
                   << " and actual data points read: " << dataPoints.size() << "\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
-    return Dataset(numOfPoints, dimensions, dataPoints);
+    return Dataset(numOfPoints, dimensions, dataPoints, inputFile);
 }
 
-std::set<int> Dataset::selectRandomIndices(int k) {
+
+std::set<int> Dataset::selectRandomIndices(int numOfClusters) const {
     std::set<int> uniqueIndices;
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> uid(0, m_numOfPoints - 1);
-    while (uniqueIndices.size() < k) {
-        uniqueIndices.insert(uid(gen));
+    std::random_device randomDevice;
+    std::mt19937 generator(randomDevice());
+    std::uniform_int_distribution<int> distribution(0, m_numOfPoints - 1);
+    while (uniqueIndices.size() < numOfClusters) {
+        uniqueIndices.insert(distribution(generator));
     }
     return uniqueIndices;
 }
 
-void Dataset::setRandomClusterCenters(int k) {
-    std::set<int> selectedIndices = selectRandomIndices(k);
-    for (auto index : selectedIndices) {
-        m_clusterCenters.push_back(m_dataPoints[index]);
-    }
-}
 
-std::vector<std::vector<double>> Dataset::getRandomClusterCenters(int k) {
-    if (k > m_numOfPoints) {
-        std::cerr << "Error: Number of clusters requested: " << k 
+DataPoints Dataset::getRandomClusterCenters(int numOfClusters) const {
+    if (numOfClusters > m_numOfPoints) {
+        std::cerr << "Error: Number of clusters requested: " << numOfClusters
                     << " exceeds number of data points: " << m_numOfPoints << "\n";
-        std::exit(1);
+        std::exit(EXIT_FAILURE);
     }
-    setRandomClusterCenters(k);
-    return m_clusterCenters;
+    
+    std::set<int> selectedIndices = selectRandomIndices(numOfClusters);
+    DataPoints clusterCenters;
+    for (auto index : selectedIndices) {
+        clusterCenters.push_back(m_dataPoints[index]);
+    }
+    return clusterCenters;
 }
 
-void Dataset::outputClusterCenters(std::vector<std::vector<double>> clusterCenters, const std::string& inputFile) const {
-    if (!fs::exists("output")) {
-        fs::create_directory("output");
-    }
-
-    fs::path inputPath(inputFile);
-    std::string outputPath = "output/" + inputPath.stem().string() + "_output.txt";
-    std::ofstream outputFile(outputPath);
-
-    if (!outputFile.is_open()) {
-        std::cerr << "Error: Could not open output file: " << outputPath << "\n";
-        return;
-    }
-
-    for (const auto& center : clusterCenters) {
-        for (const auto& value : center) {
-            std::cout << value << " ";
-            outputFile << value << " ";
-        }
-        std::cout << "\n";
-        outputFile << "\n";
-    }
-    outputFile.close();
-}
 
 void Dataset::printDataset() const {
     std::cout << "Number of Points: " << m_numOfPoints << "\n";

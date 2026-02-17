@@ -1,3 +1,1916 @@
-2 4 4 2 2 8 10 2 2 6 9 8 6 11 0 8 
-1 6 2 4 1 11 3 9 3 13 7 13 1 6 0 8 
-5 9 6 7 4 8 7 13 2 6 9 8 8 6 0 8 
+Run 1
+-----
+Iteration 1: SSE = 961147.000000
+Iteration 2: SSE = 715867.732401
+Iteration 3: SSE = 676963.819745
+Iteration 4: SSE = 660158.083450
+Iteration 5: SSE = 648270.323153
+Iteration 6: SSE = 638598.533822
+Iteration 7: SSE = 633705.064593
+Iteration 8: SSE = 630798.324286
+Iteration 9: SSE = 628929.231356
+Iteration 10: SSE = 627466.350588
+Iteration 11: SSE = 626272.577636
+Iteration 12: SSE = 625211.340614
+Iteration 13: SSE = 624118.095225
+Iteration 14: SSE = 623056.314404
+Iteration 15: SSE = 622138.143398
+Iteration 16: SSE = 621440.366530
+Iteration 17: SSE = 621030.533048
+
+Run 2
+-----
+Iteration 1: SSE = 1015199.000000
+Iteration 2: SSE = 713646.586740
+Iteration 3: SSE = 665344.456186
+Iteration 4: SSE = 649791.051366
+Iteration 5: SSE = 642904.886249
+Iteration 6: SSE = 639509.391647
+Iteration 7: SSE = 637362.544932
+Iteration 8: SSE = 635952.368157
+Iteration 9: SSE = 634933.841043
+Iteration 10: SSE = 634044.173609
+Iteration 11: SSE = 633065.725627
+Iteration 12: SSE = 631842.774987
+Iteration 13: SSE = 630712.546858
+Iteration 14: SSE = 629653.845575
+Iteration 15: SSE = 628774.743043
+Iteration 16: SSE = 628166.047783
+
+Run 3
+-----
+Iteration 1: SSE = 991933.000000
+Iteration 2: SSE = 735516.947403
+Iteration 3: SSE = 691564.044412
+Iteration 4: SSE = 668786.730429
+Iteration 5: SSE = 655360.009767
+Iteration 6: SSE = 647743.910733
+Iteration 7: SSE = 641728.715384
+Iteration 8: SSE = 637769.883317
+Iteration 9: SSE = 635402.680991
+Iteration 10: SSE = 633946.471213
+Iteration 11: SSE = 632943.965432
+Iteration 12: SSE = 632288.193675
+Iteration 13: SSE = 631558.623254
+Iteration 14: SSE = 631041.038789
+
+Run 4
+-----
+Iteration 1: SSE = 1029005.000000
+Iteration 2: SSE = 762639.529938
+Iteration 3: SSE = 701324.190971
+Iteration 4: SSE = 664475.555651
+Iteration 5: SSE = 647373.036160
+Iteration 6: SSE = 638697.650460
+Iteration 7: SSE = 634249.741527
+Iteration 8: SSE = 632203.264143
+Iteration 9: SSE = 631100.752860
+Iteration 10: SSE = 630230.447389
+Iteration 11: SSE = 629451.843218
+Iteration 12: SSE = 628573.900943
+Iteration 13: SSE = 627898.446533
+Iteration 14: SSE = 627310.682847
+
+Run 5
+-----
+Iteration 1: SSE = 1068462.000000
+Iteration 2: SSE = 726860.117914
+Iteration 3: SSE = 681933.772423
+Iteration 4: SSE = 659351.029474
+Iteration 5: SSE = 647315.923496
+Iteration 6: SSE = 640015.543691
+Iteration 7: SSE = 635086.408206
+Iteration 8: SSE = 631578.300943
+Iteration 9: SSE = 629236.318245
+Iteration 10: SSE = 627573.064675
+Iteration 11: SSE = 626267.096744
+Iteration 12: SSE = 625295.401902
+Iteration 13: SSE = 624572.014205
+Iteration 14: SSE = 624137.685004
+
+Run 6
+-----
+Iteration 1: SSE = 1182928.000000
+Iteration 2: SSE = 766546.533760
+Iteration 3: SSE = 701468.041336
+Iteration 4: SSE = 668414.491977
+Iteration 5: SSE = 653895.761088
+Iteration 6: SSE = 645758.603923
+Iteration 7: SSE = 640037.538868
+Iteration 8: SSE = 636925.726215
+Iteration 9: SSE = 634934.457261
+Iteration 10: SSE = 633301.347244
+Iteration 11: SSE = 632163.812961
+Iteration 12: SSE = 631341.417704
+Iteration 13: SSE = 630347.293619
+Iteration 14: SSE = 629385.443595
+Iteration 15: SSE = 628370.838692
+Iteration 16: SSE = 627541.614221
+Iteration 17: SSE = 626782.054465
+Iteration 18: SSE = 626170.296705
+
+Run 7
+-----
+Iteration 1: SSE = 980653.000000
+Iteration 2: SSE = 729788.663291
+Iteration 3: SSE = 691280.433142
+Iteration 4: SSE = 673484.686077
+Iteration 5: SSE = 661222.670466
+Iteration 6: SSE = 652148.783004
+Iteration 7: SSE = 645219.928529
+Iteration 8: SSE = 638414.185632
+Iteration 9: SSE = 631903.698958
+Iteration 10: SSE = 627530.525200
+Iteration 11: SSE = 625647.726345
+Iteration 12: SSE = 624505.111687
+Iteration 13: SSE = 623670.601865
+Iteration 14: SSE = 623092.718119
+
+Run 8
+-----
+Iteration 1: SSE = 1078576.000000
+Iteration 2: SSE = 750069.276607
+Iteration 3: SSE = 709961.640448
+Iteration 4: SSE = 685109.980623
+Iteration 5: SSE = 657812.859858
+Iteration 6: SSE = 644148.306349
+Iteration 7: SSE = 635621.021526
+Iteration 8: SSE = 630978.249157
+Iteration 9: SSE = 627770.292828
+Iteration 10: SSE = 625817.342737
+Iteration 11: SSE = 624601.210911
+Iteration 12: SSE = 623833.301929
+Iteration 13: SSE = 623235.119934
+
+Run 9
+-----
+Iteration 1: SSE = 1010986.000000
+Iteration 2: SSE = 735096.115702
+Iteration 3: SSE = 679199.848623
+Iteration 4: SSE = 659609.343472
+Iteration 5: SSE = 647707.509416
+Iteration 6: SSE = 640135.695472
+Iteration 7: SSE = 635059.809458
+Iteration 8: SSE = 630474.836252
+Iteration 9: SSE = 627164.889851
+Iteration 10: SSE = 625179.842142
+Iteration 11: SSE = 624112.723144
+Iteration 12: SSE = 623491.368807
+
+Run 10
+------
+Iteration 1: SSE = 1071977.000000
+Iteration 2: SSE = 717881.146088
+Iteration 3: SSE = 670256.145599
+Iteration 4: SSE = 654803.370344
+Iteration 5: SSE = 647594.665293
+Iteration 6: SSE = 643640.602037
+Iteration 7: SSE = 640631.839635
+Iteration 8: SSE = 638210.648434
+Iteration 9: SSE = 635966.256502
+Iteration 10: SSE = 634511.755350
+Iteration 11: SSE = 633510.572733
+Iteration 12: SSE = 632635.284711
+Iteration 13: SSE = 631794.650282
+Iteration 14: SSE = 630977.068502
+Iteration 15: SSE = 630217.016186
+Iteration 16: SSE = 629656.094305
+
+Run 11
+------
+Iteration 1: SSE = 1034309.000000
+Iteration 2: SSE = 743474.772510
+Iteration 3: SSE = 691008.676684
+Iteration 4: SSE = 658542.502563
+Iteration 5: SSE = 644220.050892
+Iteration 6: SSE = 639451.525442
+Iteration 7: SSE = 636088.498182
+Iteration 8: SSE = 633529.062000
+Iteration 9: SSE = 631574.428773
+Iteration 10: SSE = 630239.040056
+Iteration 11: SSE = 629043.519843
+Iteration 12: SSE = 628013.954719
+Iteration 13: SSE = 626822.054410
+Iteration 14: SSE = 625419.663500
+Iteration 15: SSE = 624078.810972
+Iteration 16: SSE = 622795.309001
+Iteration 17: SSE = 621645.116047
+Iteration 18: SSE = 620686.494168
+Iteration 19: SSE = 619704.400322
+Iteration 20: SSE = 618697.659316
+Iteration 21: SSE = 617939.561260
+Iteration 22: SSE = 617364.446026
+
+Run 12
+------
+Iteration 1: SSE = 1068088.000000
+Iteration 2: SSE = 779024.714856
+Iteration 3: SSE = 719909.607936
+Iteration 4: SSE = 695255.882673
+Iteration 5: SSE = 682439.192351
+Iteration 6: SSE = 668803.667816
+Iteration 7: SSE = 654084.379603
+Iteration 8: SSE = 648475.905384
+Iteration 9: SSE = 644471.081543
+Iteration 10: SSE = 640531.691536
+Iteration 11: SSE = 638174.575717
+Iteration 12: SSE = 636676.963881
+Iteration 13: SSE = 635731.729586
+Iteration 14: SSE = 634932.587447
+Iteration 15: SSE = 634036.394994
+Iteration 16: SSE = 632472.996419
+Iteration 17: SSE = 630857.769246
+Iteration 18: SSE = 629935.572866
+Iteration 19: SSE = 629140.956882
+Iteration 20: SSE = 628549.949125
+
+Run 13
+------
+Iteration 1: SSE = 1031694.000000
+Iteration 2: SSE = 719283.693033
+Iteration 3: SSE = 669255.353178
+Iteration 4: SSE = 653309.844291
+Iteration 5: SSE = 646598.259260
+Iteration 6: SSE = 642742.939334
+Iteration 7: SSE = 639922.422023
+Iteration 8: SSE = 637242.964576
+Iteration 9: SSE = 634625.674666
+Iteration 10: SSE = 632347.372607
+Iteration 11: SSE = 630507.221571
+Iteration 12: SSE = 629107.885014
+Iteration 13: SSE = 628043.671646
+Iteration 14: SSE = 627183.892580
+Iteration 15: SSE = 626137.782809
+Iteration 16: SSE = 624998.259113
+Iteration 17: SSE = 624008.213459
+Iteration 18: SSE = 623567.438322
+
+Run 14
+------
+Iteration 1: SSE = 1023797.000000
+Iteration 2: SSE = 739568.839764
+Iteration 3: SSE = 686209.901826
+Iteration 4: SSE = 664182.089245
+Iteration 5: SSE = 647676.482038
+Iteration 6: SSE = 638725.101086
+Iteration 7: SSE = 633648.956398
+Iteration 8: SSE = 630155.355443
+Iteration 9: SSE = 627312.631128
+Iteration 10: SSE = 625380.906645
+Iteration 11: SSE = 623928.485328
+Iteration 12: SSE = 622741.666235
+Iteration 13: SSE = 621999.156225
+Iteration 14: SSE = 621494.655777
+
+Run 15
+------
+Iteration 1: SSE = 1078902.000000
+Iteration 2: SSE = 741297.458754
+Iteration 3: SSE = 693649.470171
+Iteration 4: SSE = 676978.230678
+Iteration 5: SSE = 665146.251416
+Iteration 6: SSE = 651344.027963
+Iteration 7: SSE = 645771.193983
+Iteration 8: SSE = 642788.456571
+Iteration 9: SSE = 640700.825545
+Iteration 10: SSE = 638969.839928
+Iteration 11: SSE = 637576.260667
+Iteration 12: SSE = 636213.859405
+Iteration 13: SSE = 635091.878903
+Iteration 14: SSE = 634165.568448
+Iteration 15: SSE = 633422.672194
+Iteration 16: SSE = 632746.257556
+Iteration 17: SSE = 632306.340719
+
+Run 16
+------
+Iteration 1: SSE = 1036550.000000
+Iteration 2: SSE = 749045.098436
+Iteration 3: SSE = 692422.783630
+Iteration 4: SSE = 667923.066118
+Iteration 5: SSE = 656691.005850
+Iteration 6: SSE = 648437.715072
+Iteration 7: SSE = 642797.071452
+Iteration 8: SSE = 640356.286449
+Iteration 9: SSE = 638601.065750
+Iteration 10: SSE = 637051.183272
+Iteration 11: SSE = 635785.037057
+Iteration 12: SSE = 634779.673710
+Iteration 13: SSE = 634054.780398
+Iteration 14: SSE = 633561.935556
+
+Run 17
+------
+Iteration 1: SSE = 1006336.000000
+Iteration 2: SSE = 709281.604364
+Iteration 3: SSE = 675449.460161
+Iteration 4: SSE = 660903.395861
+Iteration 5: SSE = 652622.481116
+Iteration 6: SSE = 647123.484428
+Iteration 7: SSE = 643280.613324
+Iteration 8: SSE = 640957.187408
+Iteration 9: SSE = 639278.920566
+Iteration 10: SSE = 637827.625695
+Iteration 11: SSE = 636779.999950
+Iteration 12: SSE = 635625.870757
+Iteration 13: SSE = 634703.372914
+Iteration 14: SSE = 633800.259350
+Iteration 15: SSE = 633025.313837
+Iteration 16: SSE = 632418.354085
+
+Run 18
+------
+Iteration 1: SSE = 1069628.000000
+Iteration 2: SSE = 770604.919798
+Iteration 3: SSE = 708174.538986
+Iteration 4: SSE = 673354.066433
+Iteration 5: SSE = 652123.842772
+Iteration 6: SSE = 639615.368595
+Iteration 7: SSE = 629273.779879
+Iteration 8: SSE = 625529.169932
+Iteration 9: SSE = 623309.675613
+Iteration 10: SSE = 621782.041904
+Iteration 11: SSE = 620696.026402
+Iteration 12: SSE = 619885.701511
+Iteration 13: SSE = 619356.922391
+
+Run 19
+------
+Iteration 1: SSE = 948128.000000
+Iteration 2: SSE = 719495.106760
+Iteration 3: SSE = 687042.424027
+Iteration 4: SSE = 665282.825740
+Iteration 5: SSE = 655029.260552
+Iteration 6: SSE = 650418.991914
+Iteration 7: SSE = 645171.309720
+Iteration 8: SSE = 640456.405770
+Iteration 9: SSE = 638208.160428
+Iteration 10: SSE = 637048.845296
+Iteration 11: SSE = 636400.704047
+Iteration 12: SSE = 635930.976866
+
+Run 20
+------
+Iteration 1: SSE = 1091773.000000
+Iteration 2: SSE = 749312.706185
+Iteration 3: SSE = 695888.369428
+Iteration 4: SSE = 667458.762254
+Iteration 5: SSE = 652086.738660
+Iteration 6: SSE = 645778.205524
+Iteration 7: SSE = 641260.094138
+Iteration 8: SSE = 638173.520562
+Iteration 9: SSE = 637075.265219
+Iteration 10: SSE = 636344.632484
+Iteration 11: SSE = 635641.054223
+Iteration 12: SSE = 634849.786247
+Iteration 13: SSE = 633885.387571
+Iteration 14: SSE = 632717.018195
+Iteration 15: SSE = 631492.522972
+Iteration 16: SSE = 629341.003236
+Iteration 17: SSE = 627809.200147
+Iteration 18: SSE = 627315.812974
+
+Run 21
+------
+Iteration 1: SSE = 981557.000000
+Iteration 2: SSE = 724144.532495
+Iteration 3: SSE = 686708.678428
+Iteration 4: SSE = 666875.578293
+Iteration 5: SSE = 650748.702588
+Iteration 6: SSE = 643867.490865
+Iteration 7: SSE = 639993.562409
+Iteration 8: SSE = 636896.512458
+Iteration 9: SSE = 634578.848016
+Iteration 10: SSE = 632888.316694
+Iteration 11: SSE = 631318.915347
+Iteration 12: SSE = 628563.334857
+Iteration 13: SSE = 626630.105148
+Iteration 14: SSE = 625840.430181
+Iteration 15: SSE = 625515.639803
+
+Run 22
+------
+Iteration 1: SSE = 997133.000000
+Iteration 2: SSE = 719433.787882
+Iteration 3: SSE = 673129.580913
+Iteration 4: SSE = 651167.168208
+Iteration 5: SSE = 644533.190281
+Iteration 6: SSE = 640347.105511
+Iteration 7: SSE = 637314.633045
+Iteration 8: SSE = 635049.443931
+Iteration 9: SSE = 633570.914908
+Iteration 10: SSE = 632512.772298
+Iteration 11: SSE = 631645.242453
+Iteration 12: SSE = 630828.329692
+Iteration 13: SSE = 630201.369506
+
+Run 23
+------
+Iteration 1: SSE = 1067501.000000
+Iteration 2: SSE = 741412.786101
+Iteration 3: SSE = 687314.387978
+Iteration 4: SSE = 665784.451908
+Iteration 5: SSE = 651021.724810
+Iteration 6: SSE = 639798.067283
+Iteration 7: SSE = 634542.056439
+Iteration 8: SSE = 631794.100508
+Iteration 9: SSE = 629828.730677
+Iteration 10: SSE = 627798.598088
+Iteration 11: SSE = 625752.566808
+Iteration 12: SSE = 624388.293557
+Iteration 13: SSE = 623333.600651
+Iteration 14: SSE = 622376.014864
+Iteration 15: SSE = 621375.280852
+Iteration 16: SSE = 620475.147392
+Iteration 17: SSE = 619832.853305
+Iteration 18: SSE = 619372.511800
+
+Run 24
+------
+Iteration 1: SSE = 997186.000000
+Iteration 2: SSE = 750178.923302
+Iteration 3: SSE = 714104.904012
+Iteration 4: SSE = 691971.556992
+Iteration 5: SSE = 668265.512990
+Iteration 6: SSE = 652393.799265
+Iteration 7: SSE = 645445.460975
+Iteration 8: SSE = 639467.407562
+Iteration 9: SSE = 634688.955563
+Iteration 10: SSE = 630848.177119
+Iteration 11: SSE = 628878.106306
+Iteration 12: SSE = 627616.191874
+Iteration 13: SSE = 626764.348771
+Iteration 14: SSE = 626062.973971
+Iteration 15: SSE = 625421.161592
+Iteration 16: SSE = 624971.947358
+
+Run 25
+------
+Iteration 1: SSE = 976636.000000
+Iteration 2: SSE = 739827.493265
+Iteration 3: SSE = 687184.926280
+Iteration 4: SSE = 665647.662660
+Iteration 5: SSE = 651662.551148
+Iteration 6: SSE = 641943.166306
+Iteration 7: SSE = 637691.433709
+Iteration 8: SSE = 635786.768735
+Iteration 9: SSE = 634057.473594
+Iteration 10: SSE = 632264.660368
+Iteration 11: SSE = 630687.802110
+Iteration 12: SSE = 629643.297744
+Iteration 13: SSE = 628958.769487
+Iteration 14: SSE = 628482.417982
+
+Run 26
+------
+Iteration 1: SSE = 925313.000000
+Iteration 2: SSE = 717597.466522
+Iteration 3: SSE = 675316.330537
+Iteration 4: SSE = 655501.764303
+Iteration 5: SSE = 647173.240926
+Iteration 6: SSE = 642764.424312
+Iteration 7: SSE = 639997.994071
+Iteration 8: SSE = 638139.125412
+Iteration 9: SSE = 636750.212370
+Iteration 10: SSE = 635544.492080
+Iteration 11: SSE = 634815.084703
+Iteration 12: SSE = 634322.711880
+
+Run 27
+------
+Iteration 1: SSE = 1051804.000000
+Iteration 2: SSE = 735853.539768
+Iteration 3: SSE = 691817.115875
+Iteration 4: SSE = 675568.673097
+Iteration 5: SSE = 667131.382451
+Iteration 6: SSE = 660321.974923
+Iteration 7: SSE = 652674.213364
+Iteration 8: SSE = 647071.641277
+Iteration 9: SSE = 643859.012397
+Iteration 10: SSE = 642117.453144
+Iteration 11: SSE = 640634.500012
+Iteration 12: SSE = 639133.130876
+Iteration 13: SSE = 638105.721986
+Iteration 14: SSE = 636987.443271
+Iteration 15: SSE = 636032.772201
+Iteration 16: SSE = 635331.933688
+Iteration 17: SSE = 634674.451269
+Iteration 18: SSE = 633739.588151
+Iteration 19: SSE = 632246.735170
+Iteration 20: SSE = 630955.922506
+Iteration 21: SSE = 630070.038030
+Iteration 22: SSE = 629291.847743
+Iteration 23: SSE = 628275.175077
+Iteration 24: SSE = 626640.112529
+Iteration 25: SSE = 624341.515439
+Iteration 26: SSE = 622186.274880
+Iteration 27: SSE = 620692.575758
+Iteration 28: SSE = 619640.848213
+Iteration 29: SSE = 618788.399247
+Iteration 30: SSE = 618004.993914
+Iteration 31: SSE = 617368.908759
+Iteration 32: SSE = 616957.462602
+
+Run 28
+------
+Iteration 1: SSE = 1000339.000000
+Iteration 2: SSE = 748636.462066
+Iteration 3: SSE = 698876.654803
+Iteration 4: SSE = 670111.636424
+Iteration 5: SSE = 653545.168376
+Iteration 6: SSE = 644685.673828
+Iteration 7: SSE = 637300.067090
+Iteration 8: SSE = 632374.161560
+Iteration 9: SSE = 630170.558674
+Iteration 10: SSE = 629006.963050
+Iteration 11: SSE = 628184.122345
+Iteration 12: SSE = 627498.465882
+Iteration 13: SSE = 626887.106388
+
+Run 29
+------
+Iteration 1: SSE = 1048693.000000
+Iteration 2: SSE = 742591.441327
+Iteration 3: SSE = 692732.864938
+Iteration 4: SSE = 667154.294524
+Iteration 5: SSE = 653322.115781
+Iteration 6: SSE = 645911.464878
+Iteration 7: SSE = 641974.199721
+Iteration 8: SSE = 639265.933853
+Iteration 9: SSE = 636984.844653
+Iteration 10: SSE = 635172.875391
+Iteration 11: SSE = 633764.333877
+Iteration 12: SSE = 632558.553460
+Iteration 13: SSE = 631652.247932
+Iteration 14: SSE = 630738.823230
+Iteration 15: SSE = 629755.930604
+Iteration 16: SSE = 628834.372102
+Iteration 17: SSE = 628097.976978
+Iteration 18: SSE = 627429.215326
+Iteration 19: SSE = 626820.607821
+
+Run 30
+------
+Iteration 1: SSE = 994222.000000
+Iteration 2: SSE = 719707.364451
+Iteration 3: SSE = 681402.323344
+Iteration 4: SSE = 666819.525540
+Iteration 5: SSE = 657578.653222
+Iteration 6: SSE = 649415.636251
+Iteration 7: SSE = 642294.485022
+Iteration 8: SSE = 637651.887196
+Iteration 9: SSE = 634600.861946
+Iteration 10: SSE = 632437.352479
+Iteration 11: SSE = 630794.248129
+Iteration 12: SSE = 629452.426267
+Iteration 13: SSE = 628399.509825
+Iteration 14: SSE = 627846.387795
+
+Run 31
+------
+Iteration 1: SSE = 1034972.000000
+Iteration 2: SSE = 751937.820468
+Iteration 3: SSE = 691974.954920
+Iteration 4: SSE = 668298.449704
+Iteration 5: SSE = 648042.239588
+Iteration 6: SSE = 637200.850585
+Iteration 7: SSE = 634354.636717
+Iteration 8: SSE = 632548.410420
+Iteration 9: SSE = 630629.216312
+Iteration 10: SSE = 628803.208456
+Iteration 11: SSE = 627379.449526
+Iteration 12: SSE = 626358.670295
+Iteration 13: SSE = 625499.578466
+Iteration 14: SSE = 624885.941211
+
+Run 32
+------
+Iteration 1: SSE = 1036106.000000
+Iteration 2: SSE = 744158.965334
+Iteration 3: SSE = 701161.183140
+Iteration 4: SSE = 675815.060776
+Iteration 5: SSE = 660338.977096
+Iteration 6: SSE = 651048.809875
+Iteration 7: SSE = 644235.261138
+Iteration 8: SSE = 639417.065074
+Iteration 9: SSE = 634503.956708
+Iteration 10: SSE = 630581.090251
+Iteration 11: SSE = 628175.078379
+Iteration 12: SSE = 626514.717092
+Iteration 13: SSE = 624960.921328
+Iteration 14: SSE = 623926.194749
+Iteration 15: SSE = 623234.003119
+Iteration 16: SSE = 622730.198719
+
+Run 33
+------
+Iteration 1: SSE = 1057375.000000
+Iteration 2: SSE = 734968.110164
+Iteration 3: SSE = 679119.205813
+Iteration 4: SSE = 655434.657763
+Iteration 5: SSE = 646002.243821
+Iteration 6: SSE = 641332.757058
+Iteration 7: SSE = 638178.375966
+Iteration 8: SSE = 635754.845565
+Iteration 9: SSE = 633778.484554
+Iteration 10: SSE = 631995.686363
+Iteration 11: SSE = 630145.379237
+Iteration 12: SSE = 628885.745078
+Iteration 13: SSE = 628269.942428
+
+Run 34
+------
+Iteration 1: SSE = 1079905.000000
+Iteration 2: SSE = 749877.389977
+Iteration 3: SSE = 697968.223256
+Iteration 4: SSE = 667642.613536
+Iteration 5: SSE = 651502.409250
+Iteration 6: SSE = 641331.632996
+Iteration 7: SSE = 634904.072967
+Iteration 8: SSE = 630995.185090
+Iteration 9: SSE = 628162.112385
+Iteration 10: SSE = 625105.644744
+Iteration 11: SSE = 623113.569917
+Iteration 12: SSE = 621834.938595
+Iteration 13: SSE = 620843.914825
+Iteration 14: SSE = 620178.209292
+Iteration 15: SSE = 619839.234377
+
+Run 35
+------
+Iteration 1: SSE = 1094723.000000
+Iteration 2: SSE = 739474.253660
+Iteration 3: SSE = 677820.047616
+Iteration 4: SSE = 658031.779572
+Iteration 5: SSE = 649694.987980
+Iteration 6: SSE = 644235.167910
+Iteration 7: SSE = 640594.391707
+Iteration 8: SSE = 638040.125677
+Iteration 9: SSE = 635688.671358
+Iteration 10: SSE = 633319.095501
+Iteration 11: SSE = 630918.161114
+Iteration 12: SSE = 628529.365299
+Iteration 13: SSE = 626925.022990
+Iteration 14: SSE = 625847.964177
+Iteration 15: SSE = 625079.081461
+Iteration 16: SSE = 624541.095044
+
+Run 36
+------
+Iteration 1: SSE = 973290.000000
+Iteration 2: SSE = 721269.934352
+Iteration 3: SSE = 677028.320808
+Iteration 4: SSE = 654427.567053
+Iteration 5: SSE = 640084.731779
+Iteration 6: SSE = 634732.525113
+Iteration 7: SSE = 632487.111738
+Iteration 8: SSE = 631176.888743
+Iteration 9: SSE = 630342.238642
+Iteration 10: SSE = 629718.843311
+
+Run 37
+------
+Iteration 1: SSE = 1052788.000000
+Iteration 2: SSE = 801375.445315
+Iteration 3: SSE = 744684.459382
+Iteration 4: SSE = 709780.593723
+Iteration 5: SSE = 679279.585448
+Iteration 6: SSE = 650474.770761
+Iteration 7: SSE = 641460.980077
+Iteration 8: SSE = 636814.857147
+Iteration 9: SSE = 633286.352268
+Iteration 10: SSE = 630802.351343
+Iteration 11: SSE = 629036.651118
+Iteration 12: SSE = 627101.353835
+Iteration 13: SSE = 625077.841536
+Iteration 14: SSE = 623735.563466
+Iteration 15: SSE = 622554.508556
+Iteration 16: SSE = 621067.244898
+Iteration 17: SSE = 619574.158547
+Iteration 18: SSE = 618413.184599
+Iteration 19: SSE = 617396.294938
+Iteration 20: SSE = 616691.548878
+Iteration 21: SSE = 616139.274179
+
+Run 38
+------
+Iteration 1: SSE = 1002532.000000
+Iteration 2: SSE = 708352.017877
+Iteration 3: SSE = 660016.581110
+Iteration 4: SSE = 643671.496194
+Iteration 5: SSE = 635081.149917
+Iteration 6: SSE = 629881.954702
+Iteration 7: SSE = 626271.786258
+Iteration 8: SSE = 623720.798590
+Iteration 9: SSE = 621994.584798
+Iteration 10: SSE = 621095.295602
+Iteration 11: SSE = 620486.806501
+
+Run 39
+------
+Iteration 1: SSE = 972682.000000
+Iteration 2: SSE = 736409.867296
+Iteration 3: SSE = 692878.629792
+Iteration 4: SSE = 665830.658016
+Iteration 5: SSE = 645460.863662
+Iteration 6: SSE = 636709.203338
+Iteration 7: SSE = 631165.484118
+Iteration 8: SSE = 627400.614209
+Iteration 9: SSE = 625078.396595
+Iteration 10: SSE = 623462.487719
+Iteration 11: SSE = 622200.901938
+Iteration 12: SSE = 621231.389321
+Iteration 13: SSE = 620537.395672
+Iteration 14: SSE = 620143.996405
+
+Run 40
+------
+Iteration 1: SSE = 1041959.000000
+Iteration 2: SSE = 731681.958953
+Iteration 3: SSE = 687393.326311
+Iteration 4: SSE = 669583.288329
+Iteration 5: SSE = 659624.169868
+Iteration 6: SSE = 652784.430320
+Iteration 7: SSE = 648820.498906
+Iteration 8: SSE = 646840.136688
+Iteration 9: SSE = 645563.934254
+Iteration 10: SSE = 644430.736408
+Iteration 11: SSE = 643335.520171
+Iteration 12: SSE = 642341.599242
+Iteration 13: SSE = 641462.124282
+Iteration 14: SSE = 640628.327157
+Iteration 15: SSE = 639774.485733
+Iteration 16: SSE = 638734.315187
+Iteration 17: SSE = 637573.704548
+Iteration 18: SSE = 636252.767697
+Iteration 19: SSE = 635237.858168
+Iteration 20: SSE = 634009.188755
+Iteration 21: SSE = 632516.367492
+Iteration 22: SSE = 631668.576909
+Iteration 23: SSE = 631316.869128
+
+Run 41
+------
+Iteration 1: SSE = 1068946.000000
+Iteration 2: SSE = 772071.137391
+Iteration 3: SSE = 714707.599659
+Iteration 4: SSE = 686259.370258
+Iteration 5: SSE = 667449.189133
+Iteration 6: SSE = 657461.441812
+Iteration 7: SSE = 650192.654088
+Iteration 8: SSE = 643955.091300
+Iteration 9: SSE = 638834.365240
+Iteration 10: SSE = 635059.308967
+Iteration 11: SSE = 632472.222603
+Iteration 12: SSE = 630972.939886
+Iteration 13: SSE = 630049.281835
+Iteration 14: SSE = 629409.790293
+Iteration 15: SSE = 628853.375143
+
+Run 42
+------
+Iteration 1: SSE = 1019877.000000
+Iteration 2: SSE = 730168.778862
+Iteration 3: SSE = 690884.480146
+Iteration 4: SSE = 676386.952501
+Iteration 5: SSE = 667962.075697
+Iteration 6: SSE = 658708.227208
+Iteration 7: SSE = 651050.108713
+Iteration 8: SSE = 646060.725592
+Iteration 9: SSE = 642612.444963
+Iteration 10: SSE = 640568.637916
+Iteration 11: SSE = 639106.628525
+Iteration 12: SSE = 638164.465961
+Iteration 13: SSE = 637558.179143
+
+Run 43
+------
+Iteration 1: SSE = 1068186.000000
+Iteration 2: SSE = 710798.312886
+Iteration 3: SSE = 664062.507545
+Iteration 4: SSE = 643825.860085
+Iteration 5: SSE = 636641.189758
+Iteration 6: SSE = 631842.227786
+Iteration 7: SSE = 627520.280990
+Iteration 8: SSE = 624508.690162
+Iteration 9: SSE = 622893.711714
+Iteration 10: SSE = 621956.956575
+Iteration 11: SSE = 621181.979448
+Iteration 12: SSE = 620464.451988
+Iteration 13: SSE = 619942.781937
+
+Run 44
+------
+Iteration 1: SSE = 1019888.000000
+Iteration 2: SSE = 738474.452095
+Iteration 3: SSE = 704502.755951
+Iteration 4: SSE = 681383.158004
+Iteration 5: SSE = 652283.267286
+Iteration 6: SSE = 646436.443491
+Iteration 7: SSE = 641677.123982
+Iteration 8: SSE = 637230.745636
+Iteration 9: SSE = 634892.754837
+Iteration 10: SSE = 633693.841981
+Iteration 11: SSE = 632858.637202
+Iteration 12: SSE = 632074.903392
+Iteration 13: SSE = 631415.512381
+Iteration 14: SSE = 630787.410344
+
+Run 45
+------
+Iteration 1: SSE = 1114935.000000
+Iteration 2: SSE = 731111.977742
+Iteration 3: SSE = 691228.758572
+Iteration 4: SSE = 674722.081223
+Iteration 5: SSE = 665842.652245
+Iteration 6: SSE = 659018.121573
+Iteration 7: SSE = 653696.984864
+Iteration 8: SSE = 650670.506122
+Iteration 9: SSE = 648873.453258
+Iteration 10: SSE = 647418.123913
+Iteration 11: SSE = 646182.355888
+Iteration 12: SSE = 644867.604075
+Iteration 13: SSE = 643829.028253
+Iteration 14: SSE = 642574.487722
+Iteration 15: SSE = 641596.395533
+Iteration 16: SSE = 640662.860837
+Iteration 17: SSE = 639900.628471
+Iteration 18: SSE = 639150.519911
+Iteration 19: SSE = 638312.344187
+Iteration 20: SSE = 637414.176102
+Iteration 21: SSE = 636822.425203
+
+Run 46
+------
+Iteration 1: SSE = 1035365.000000
+Iteration 2: SSE = 738700.919753
+Iteration 3: SSE = 687333.154548
+Iteration 4: SSE = 665575.077161
+Iteration 5: SSE = 650360.509884
+Iteration 6: SSE = 643272.642213
+Iteration 7: SSE = 639562.230982
+Iteration 8: SSE = 637200.903064
+Iteration 9: SSE = 635602.884502
+Iteration 10: SSE = 634091.320446
+Iteration 11: SSE = 632197.786237
+Iteration 12: SSE = 630265.476700
+Iteration 13: SSE = 628707.817258
+Iteration 14: SSE = 627712.613447
+Iteration 15: SSE = 627123.684977
+
+Run 47
+------
+Iteration 1: SSE = 1011889.000000
+Iteration 2: SSE = 715081.007199
+Iteration 3: SSE = 675536.373293
+Iteration 4: SSE = 656305.826994
+Iteration 5: SSE = 645981.353009
+Iteration 6: SSE = 640023.851495
+Iteration 7: SSE = 636120.117037
+Iteration 8: SSE = 633372.615980
+Iteration 9: SSE = 631498.353975
+Iteration 10: SSE = 630174.728325
+Iteration 11: SSE = 629270.359641
+Iteration 12: SSE = 628489.957095
+Iteration 13: SSE = 627797.244803
+Iteration 14: SSE = 627215.880868
+
+Run 48
+------
+Iteration 1: SSE = 1128385.000000
+Iteration 2: SSE = 778137.274462
+Iteration 3: SSE = 735589.859454
+Iteration 4: SSE = 703442.087162
+Iteration 5: SSE = 669109.938918
+Iteration 6: SSE = 653805.517549
+Iteration 7: SSE = 644841.320461
+Iteration 8: SSE = 638184.689156
+Iteration 9: SSE = 635054.887211
+Iteration 10: SSE = 633347.158875
+Iteration 11: SSE = 631878.191472
+Iteration 12: SSE = 630583.940827
+Iteration 13: SSE = 629437.373118
+Iteration 14: SSE = 628495.549702
+Iteration 15: SSE = 627653.748260
+Iteration 16: SSE = 626798.971332
+Iteration 17: SSE = 626123.080157
+Iteration 18: SSE = 625450.250970
+Iteration 19: SSE = 624663.215542
+Iteration 20: SSE = 624013.797701
+Iteration 21: SSE = 623529.780823
+
+Run 49
+------
+Iteration 1: SSE = 1046634.000000
+Iteration 2: SSE = 756506.883490
+Iteration 3: SSE = 699268.940242
+Iteration 4: SSE = 680931.011770
+Iteration 5: SSE = 668716.280271
+Iteration 6: SSE = 656689.832328
+Iteration 7: SSE = 649532.495127
+Iteration 8: SSE = 644198.851314
+Iteration 9: SSE = 639188.874104
+Iteration 10: SSE = 635159.149911
+Iteration 11: SSE = 632844.135924
+Iteration 12: SSE = 631495.985916
+Iteration 13: SSE = 630565.134034
+Iteration 14: SSE = 629783.934058
+Iteration 15: SSE = 628790.810466
+Iteration 16: SSE = 628043.286558
+Iteration 17: SSE = 627324.176976
+Iteration 18: SSE = 626517.078156
+Iteration 19: SSE = 625762.520444
+Iteration 20: SSE = 624865.498621
+Iteration 21: SSE = 623859.263252
+Iteration 22: SSE = 622874.953365
+Iteration 23: SSE = 622390.944898
+
+Run 50
+------
+Iteration 1: SSE = 1002331.000000
+Iteration 2: SSE = 702587.776241
+Iteration 3: SSE = 665099.353962
+Iteration 4: SSE = 651122.999697
+Iteration 5: SSE = 643082.660419
+Iteration 6: SSE = 636658.782391
+Iteration 7: SSE = 631905.846815
+Iteration 8: SSE = 628838.097357
+Iteration 9: SSE = 627203.963376
+Iteration 10: SSE = 626218.814863
+Iteration 11: SSE = 625612.344428
+
+Run 51
+------
+Iteration 1: SSE = 951932.000000
+Iteration 2: SSE = 724070.371368
+Iteration 3: SSE = 687308.752444
+Iteration 4: SSE = 669110.157555
+Iteration 5: SSE = 659426.252794
+Iteration 6: SSE = 650232.329609
+Iteration 7: SSE = 643546.129976
+Iteration 8: SSE = 640159.193966
+Iteration 9: SSE = 637642.104339
+Iteration 10: SSE = 635798.774920
+Iteration 11: SSE = 634484.822693
+Iteration 12: SSE = 633597.342940
+Iteration 13: SSE = 632990.878181
+
+Run 52
+------
+Iteration 1: SSE = 1023224.000000
+Iteration 2: SSE = 740046.391018
+Iteration 3: SSE = 683443.201525
+Iteration 4: SSE = 656958.428295
+Iteration 5: SSE = 638162.433033
+Iteration 6: SSE = 631876.791638
+Iteration 7: SSE = 629273.672283
+Iteration 8: SSE = 627973.712782
+Iteration 9: SSE = 627099.718038
+Iteration 10: SSE = 626323.267796
+Iteration 11: SSE = 625543.457987
+Iteration 12: SSE = 624839.465761
+Iteration 13: SSE = 624345.578740
+
+Run 53
+------
+Iteration 1: SSE = 987619.000000
+Iteration 2: SSE = 722456.062892
+Iteration 3: SSE = 683186.268343
+Iteration 4: SSE = 666575.331431
+Iteration 5: SSE = 652001.425123
+Iteration 6: SSE = 643163.890886
+Iteration 7: SSE = 637547.787511
+Iteration 8: SSE = 633832.951084
+Iteration 9: SSE = 631196.644950
+Iteration 10: SSE = 628881.319868
+Iteration 11: SSE = 626998.793655
+Iteration 12: SSE = 625870.875479
+Iteration 13: SSE = 625029.440066
+Iteration 14: SSE = 624326.530828
+Iteration 15: SSE = 623525.195398
+Iteration 16: SSE = 622730.156891
+Iteration 17: SSE = 621955.296883
+Iteration 18: SSE = 621383.776218
+
+Run 54
+------
+Iteration 1: SSE = 1038769.000000
+Iteration 2: SSE = 757863.348167
+Iteration 3: SSE = 707529.781065
+Iteration 4: SSE = 686261.171574
+Iteration 5: SSE = 673421.126180
+Iteration 6: SSE = 664400.816875
+Iteration 7: SSE = 656414.323875
+Iteration 8: SSE = 648281.369368
+Iteration 9: SSE = 641927.082765
+Iteration 10: SSE = 637881.792504
+Iteration 11: SSE = 635322.472871
+Iteration 12: SSE = 633471.585707
+Iteration 13: SSE = 631534.929014
+Iteration 14: SSE = 630058.572649
+Iteration 15: SSE = 628812.733600
+Iteration 16: SSE = 627644.812894
+Iteration 17: SSE = 627043.812770
+
+Run 55
+------
+Iteration 1: SSE = 1015456.000000
+Iteration 2: SSE = 737425.257548
+Iteration 3: SSE = 688651.855183
+Iteration 4: SSE = 667938.810675
+Iteration 5: SSE = 657812.269063
+Iteration 6: SSE = 651229.174084
+Iteration 7: SSE = 645682.693614
+Iteration 8: SSE = 641529.480948
+Iteration 9: SSE = 637942.660203
+Iteration 10: SSE = 635166.361318
+Iteration 11: SSE = 633131.664092
+Iteration 12: SSE = 631609.112533
+Iteration 13: SSE = 630499.052510
+Iteration 14: SSE = 629837.057384
+Iteration 15: SSE = 629244.756041
+
+Run 56
+------
+Iteration 1: SSE = 1038178.000000
+Iteration 2: SSE = 753603.430264
+Iteration 3: SSE = 697248.306816
+Iteration 4: SSE = 667228.814230
+Iteration 5: SSE = 657597.283166
+Iteration 6: SSE = 653271.366608
+Iteration 7: SSE = 650769.002876
+Iteration 8: SSE = 648705.688463
+Iteration 9: SSE = 646899.801191
+Iteration 10: SSE = 645212.290543
+Iteration 11: SSE = 643673.105075
+Iteration 12: SSE = 642324.150296
+Iteration 13: SSE = 641083.807124
+Iteration 14: SSE = 639687.847950
+Iteration 15: SSE = 638150.098505
+Iteration 16: SSE = 636253.919380
+Iteration 17: SSE = 634445.411551
+Iteration 18: SSE = 633231.464885
+Iteration 19: SSE = 632445.980202
+Iteration 20: SSE = 631924.021362
+
+Run 57
+------
+Iteration 1: SSE = 1003027.000000
+Iteration 2: SSE = 709613.028175
+Iteration 3: SSE = 670775.616498
+Iteration 4: SSE = 658797.195529
+Iteration 5: SSE = 651931.279751
+Iteration 6: SSE = 646942.927716
+Iteration 7: SSE = 641614.743731
+Iteration 8: SSE = 637305.948807
+Iteration 9: SSE = 635437.752745
+Iteration 10: SSE = 634363.585547
+Iteration 11: SSE = 633576.370929
+Iteration 12: SSE = 632840.772060
+Iteration 13: SSE = 631556.018646
+Iteration 14: SSE = 630536.472880
+Iteration 15: SSE = 629980.547240
+
+Run 58
+------
+Iteration 1: SSE = 1019021.000000
+Iteration 2: SSE = 751219.437413
+Iteration 3: SSE = 705218.495460
+Iteration 4: SSE = 682719.479658
+Iteration 5: SSE = 667819.647456
+Iteration 6: SSE = 658537.369497
+Iteration 7: SSE = 652198.664529
+Iteration 8: SSE = 646594.518360
+Iteration 9: SSE = 641740.317276
+Iteration 10: SSE = 639120.620771
+Iteration 11: SSE = 637211.890103
+Iteration 12: SSE = 635434.669681
+Iteration 13: SSE = 634034.646476
+Iteration 14: SSE = 632953.620409
+Iteration 15: SSE = 632072.068242
+Iteration 16: SSE = 631339.812587
+Iteration 17: SSE = 630711.852538
+
+Run 59
+------
+Iteration 1: SSE = 1061268.000000
+Iteration 2: SSE = 795672.953080
+Iteration 3: SSE = 749400.154182
+Iteration 4: SSE = 719165.019300
+Iteration 5: SSE = 695376.318873
+Iteration 6: SSE = 681020.852014
+Iteration 7: SSE = 668185.669849
+Iteration 8: SSE = 651871.323454
+Iteration 9: SSE = 645787.466456
+Iteration 10: SSE = 642664.405222
+Iteration 11: SSE = 640183.799327
+Iteration 12: SSE = 637847.260663
+Iteration 13: SSE = 636531.245964
+Iteration 14: SSE = 635707.446176
+Iteration 15: SSE = 634932.308663
+Iteration 16: SSE = 634224.860826
+Iteration 17: SSE = 633488.503301
+Iteration 18: SSE = 633012.168473
+
+Run 60
+------
+Iteration 1: SSE = 1073836.000000
+Iteration 2: SSE = 743926.392497
+Iteration 3: SSE = 690064.133864
+Iteration 4: SSE = 659052.033058
+Iteration 5: SSE = 645199.863468
+Iteration 6: SSE = 638836.218221
+Iteration 7: SSE = 634753.188833
+Iteration 8: SSE = 631730.594712
+Iteration 9: SSE = 629499.796589
+Iteration 10: SSE = 628002.957097
+Iteration 11: SSE = 627027.733602
+Iteration 12: SSE = 626349.119784
+Iteration 13: SSE = 625863.061460
+
+Run 61
+------
+Iteration 1: SSE = 1025060.000000
+Iteration 2: SSE = 721562.502046
+Iteration 3: SSE = 685522.795690
+Iteration 4: SSE = 668399.150447
+Iteration 5: SSE = 656924.684470
+Iteration 6: SSE = 649241.075443
+Iteration 7: SSE = 644515.663880
+Iteration 8: SSE = 640508.651042
+Iteration 9: SSE = 637169.079057
+Iteration 10: SSE = 634352.967982
+Iteration 11: SSE = 632125.410263
+Iteration 12: SSE = 630642.917687
+Iteration 13: SSE = 629459.999931
+Iteration 14: SSE = 627937.191567
+Iteration 15: SSE = 625797.039403
+Iteration 16: SSE = 624977.935878
+Iteration 17: SSE = 624248.803373
+Iteration 18: SSE = 623587.576823
+Iteration 19: SSE = 623029.207393
+
+Run 62
+------
+Iteration 1: SSE = 1040912.000000
+Iteration 2: SSE = 745149.800429
+Iteration 3: SSE = 687535.620174
+Iteration 4: SSE = 662260.418938
+Iteration 5: SSE = 653742.439401
+Iteration 6: SSE = 647759.345846
+Iteration 7: SSE = 643506.236171
+Iteration 8: SSE = 640792.041918
+Iteration 9: SSE = 638537.209159
+Iteration 10: SSE = 636004.515715
+Iteration 11: SSE = 632711.627589
+Iteration 12: SSE = 629235.643360
+Iteration 13: SSE = 627761.557540
+Iteration 14: SSE = 626737.523186
+Iteration 15: SSE = 625748.457912
+Iteration 16: SSE = 624873.473867
+Iteration 17: SSE = 623891.443750
+Iteration 18: SSE = 623122.976378
+Iteration 19: SSE = 622559.132778
+
+Run 63
+------
+Iteration 1: SSE = 999797.000000
+Iteration 2: SSE = 747701.419356
+Iteration 3: SSE = 693637.457897
+Iteration 4: SSE = 665095.451821
+Iteration 5: SSE = 653972.024341
+Iteration 6: SSE = 649329.152036
+Iteration 7: SSE = 646182.496291
+Iteration 8: SSE = 643032.414644
+Iteration 9: SSE = 640021.620433
+Iteration 10: SSE = 637080.495527
+Iteration 11: SSE = 635184.588065
+Iteration 12: SSE = 633931.211899
+Iteration 13: SSE = 633120.145682
+Iteration 14: SSE = 632556.567907
+
+Run 64
+------
+Iteration 1: SSE = 1057216.000000
+Iteration 2: SSE = 782268.118289
+Iteration 3: SSE = 704730.300290
+Iteration 4: SSE = 673049.585115
+Iteration 5: SSE = 651655.871654
+Iteration 6: SSE = 644947.861018
+Iteration 7: SSE = 639330.855989
+Iteration 8: SSE = 636092.758588
+Iteration 9: SSE = 634330.568004
+Iteration 10: SSE = 633055.933594
+Iteration 11: SSE = 631892.268281
+Iteration 12: SSE = 630993.695475
+Iteration 13: SSE = 630193.030290
+Iteration 14: SSE = 629304.284221
+Iteration 15: SSE = 628299.964151
+Iteration 16: SSE = 627277.403209
+Iteration 17: SSE = 626449.430371
+Iteration 18: SSE = 625670.722559
+Iteration 19: SSE = 625152.561133
+
+Run 65
+------
+Iteration 1: SSE = 1089679.000000
+Iteration 2: SSE = 731529.470005
+Iteration 3: SSE = 690558.469666
+Iteration 4: SSE = 672451.978277
+Iteration 5: SSE = 661983.545445
+Iteration 6: SSE = 653665.053085
+Iteration 7: SSE = 647548.743121
+Iteration 8: SSE = 643463.556367
+Iteration 9: SSE = 640581.924261
+Iteration 10: SSE = 637782.074161
+Iteration 11: SSE = 634509.755284
+Iteration 12: SSE = 631789.586549
+Iteration 13: SSE = 629779.721924
+Iteration 14: SSE = 628289.240499
+Iteration 15: SSE = 627193.179233
+Iteration 16: SSE = 626330.312523
+Iteration 17: SSE = 625538.040753
+Iteration 18: SSE = 624845.575902
+Iteration 19: SSE = 624137.639234
+Iteration 20: SSE = 623598.492698
+
+Run 66
+------
+Iteration 1: SSE = 1036173.000000
+Iteration 2: SSE = 731441.468768
+Iteration 3: SSE = 690315.974454
+Iteration 4: SSE = 668984.595145
+Iteration 5: SSE = 655418.167253
+Iteration 6: SSE = 645564.179563
+Iteration 7: SSE = 639744.298071
+Iteration 8: SSE = 635960.376384
+Iteration 9: SSE = 632971.903013
+Iteration 10: SSE = 630788.784506
+Iteration 11: SSE = 629382.573525
+Iteration 12: SSE = 628290.204925
+Iteration 13: SSE = 627546.994059
+Iteration 14: SSE = 627054.140549
+
+Run 67
+------
+Iteration 1: SSE = 1030426.000000
+Iteration 2: SSE = 748350.372458
+Iteration 3: SSE = 702291.962067
+Iteration 4: SSE = 680855.787452
+Iteration 5: SSE = 667105.928305
+Iteration 6: SSE = 657671.334809
+Iteration 7: SSE = 652474.199456
+Iteration 8: SSE = 648147.398843
+Iteration 9: SSE = 645272.679249
+Iteration 10: SSE = 643547.017626
+Iteration 11: SSE = 642233.932674
+Iteration 12: SSE = 641285.326643
+Iteration 13: SSE = 640546.793811
+Iteration 14: SSE = 639870.935925
+Iteration 15: SSE = 639337.925494
+
+Run 68
+------
+Iteration 1: SSE = 1022168.000000
+Iteration 2: SSE = 728721.958872
+Iteration 3: SSE = 681341.059538
+Iteration 4: SSE = 659267.555360
+Iteration 5: SSE = 645992.860580
+Iteration 6: SSE = 639319.334299
+Iteration 7: SSE = 635379.558239
+Iteration 8: SSE = 631988.361676
+Iteration 9: SSE = 629960.121683
+Iteration 10: SSE = 628767.563521
+Iteration 11: SSE = 627472.271851
+Iteration 12: SSE = 626322.521216
+Iteration 13: SSE = 625482.034641
+Iteration 14: SSE = 624823.600666
+Iteration 15: SSE = 624277.947397
+
+Run 69
+------
+Iteration 1: SSE = 971175.000000
+Iteration 2: SSE = 708791.678679
+Iteration 3: SSE = 673905.677676
+Iteration 4: SSE = 658629.584447
+Iteration 5: SSE = 651083.787773
+Iteration 6: SSE = 646387.490935
+Iteration 7: SSE = 642913.227630
+Iteration 8: SSE = 639575.927929
+Iteration 9: SSE = 636620.979445
+Iteration 10: SSE = 634707.183807
+Iteration 11: SSE = 632899.757286
+Iteration 12: SSE = 631481.100253
+Iteration 13: SSE = 630629.832410
+Iteration 14: SSE = 629967.759885
+Iteration 15: SSE = 629466.162076
+
+Run 70
+------
+Iteration 1: SSE = 1014279.000000
+Iteration 2: SSE = 746168.924424
+Iteration 3: SSE = 696277.380068
+Iteration 4: SSE = 673572.941064
+Iteration 5: SSE = 661120.197845
+Iteration 6: SSE = 650277.144907
+Iteration 7: SSE = 640910.883204
+Iteration 8: SSE = 634801.940208
+Iteration 9: SSE = 631740.586023
+Iteration 10: SSE = 630192.330895
+Iteration 11: SSE = 629189.389722
+Iteration 12: SSE = 628515.104429
+Iteration 13: SSE = 628002.236173
+
+Run 71
+------
+Iteration 1: SSE = 993552.000000
+Iteration 2: SSE = 720985.810812
+Iteration 3: SSE = 682501.803374
+Iteration 4: SSE = 663350.824386
+Iteration 5: SSE = 649976.919483
+Iteration 6: SSE = 640046.110116
+Iteration 7: SSE = 634006.846303
+Iteration 8: SSE = 630977.998365
+Iteration 9: SSE = 628587.937934
+Iteration 10: SSE = 626545.356675
+Iteration 11: SSE = 624947.164602
+Iteration 12: SSE = 623780.212732
+Iteration 13: SSE = 622783.892153
+Iteration 14: SSE = 621936.925780
+Iteration 15: SSE = 621225.106988
+Iteration 16: SSE = 620641.020229
+
+Run 72
+------
+Iteration 1: SSE = 1077293.000000
+Iteration 2: SSE = 755988.900527
+Iteration 3: SSE = 717170.488195
+Iteration 4: SSE = 691224.729280
+Iteration 5: SSE = 672108.552963
+Iteration 6: SSE = 662854.741477
+Iteration 7: SSE = 656383.077949
+Iteration 8: SSE = 653204.446936
+Iteration 9: SSE = 650681.064874
+Iteration 10: SSE = 648893.124950
+Iteration 11: SSE = 647203.147599
+Iteration 12: SSE = 645289.996527
+Iteration 13: SSE = 642767.576925
+Iteration 14: SSE = 639750.859777
+Iteration 15: SSE = 637051.405489
+Iteration 16: SSE = 634527.719819
+Iteration 17: SSE = 632524.592795
+Iteration 18: SSE = 631126.057716
+Iteration 19: SSE = 629899.211464
+Iteration 20: SSE = 628740.505383
+Iteration 21: SSE = 627858.404646
+Iteration 22: SSE = 626992.671056
+Iteration 23: SSE = 626217.500717
+Iteration 24: SSE = 625438.270966
+Iteration 25: SSE = 624481.945120
+Iteration 26: SSE = 623347.604353
+Iteration 27: SSE = 622593.800334
+Iteration 28: SSE = 621895.641001
+Iteration 29: SSE = 621385.617739
+
+Run 73
+------
+Iteration 1: SSE = 1105065.000000
+Iteration 2: SSE = 775982.434117
+Iteration 3: SSE = 714867.242337
+Iteration 4: SSE = 689556.328709
+Iteration 5: SSE = 668392.284159
+Iteration 6: SSE = 647826.640069
+Iteration 7: SSE = 641805.167798
+Iteration 8: SSE = 639089.965111
+Iteration 9: SSE = 637466.767192
+Iteration 10: SSE = 636193.526983
+Iteration 11: SSE = 634957.480240
+Iteration 12: SSE = 633781.458034
+Iteration 13: SSE = 632849.905966
+Iteration 14: SSE = 632156.539834
+Iteration 15: SSE = 631669.444923
+
+Run 74
+------
+Iteration 1: SSE = 1050968.000000
+Iteration 2: SSE = 724160.567489
+Iteration 3: SSE = 677753.752297
+Iteration 4: SSE = 660392.059248
+Iteration 5: SSE = 651612.930833
+Iteration 6: SSE = 645620.275861
+Iteration 7: SSE = 640040.530179
+Iteration 8: SSE = 635587.168989
+Iteration 9: SSE = 632514.421109
+Iteration 10: SSE = 630635.377830
+Iteration 11: SSE = 629270.906763
+Iteration 12: SSE = 628210.254551
+Iteration 13: SSE = 627537.663663
+Iteration 14: SSE = 626934.025676
+
+Run 75
+------
+Iteration 1: SSE = 1088201.000000
+Iteration 2: SSE = 734448.570414
+Iteration 3: SSE = 688620.588052
+Iteration 4: SSE = 670679.320816
+Iteration 5: SSE = 659020.707126
+Iteration 6: SSE = 649810.606255
+Iteration 7: SSE = 644821.236824
+Iteration 8: SSE = 642168.215988
+Iteration 9: SSE = 640003.823197
+Iteration 10: SSE = 637824.468970
+Iteration 11: SSE = 635620.642286
+Iteration 12: SSE = 633790.588726
+Iteration 13: SSE = 632701.180562
+Iteration 14: SSE = 631751.645926
+Iteration 15: SSE = 630991.054826
+Iteration 16: SSE = 630374.965963
+
+Run 76
+------
+Iteration 1: SSE = 1103900.000000
+Iteration 2: SSE = 787419.176486
+Iteration 3: SSE = 729186.247677
+Iteration 4: SSE = 682556.651859
+Iteration 5: SSE = 659582.669380
+Iteration 6: SSE = 652458.005554
+Iteration 7: SSE = 648590.109416
+Iteration 8: SSE = 645060.873375
+Iteration 9: SSE = 641088.999381
+Iteration 10: SSE = 637064.579529
+Iteration 11: SSE = 634386.032619
+Iteration 12: SSE = 632560.532942
+Iteration 13: SSE = 631577.951899
+Iteration 14: SSE = 631004.936856
+
+Run 77
+------
+Iteration 1: SSE = 1011907.000000
+Iteration 2: SSE = 727466.417359
+Iteration 3: SSE = 678055.399943
+Iteration 4: SSE = 655282.499233
+Iteration 5: SSE = 646135.853488
+Iteration 6: SSE = 642444.458017
+Iteration 7: SSE = 640801.064150
+Iteration 8: SSE = 639752.720220
+Iteration 9: SSE = 638981.265801
+Iteration 10: SSE = 638218.343365
+Iteration 11: SSE = 637569.632991
+Iteration 12: SSE = 637019.579598
+
+Run 78
+------
+Iteration 1: SSE = 1046537.000000
+Iteration 2: SSE = 717491.057991
+Iteration 3: SSE = 678488.585116
+Iteration 4: SSE = 656350.726218
+Iteration 5: SSE = 644178.495447
+Iteration 6: SSE = 637325.870484
+Iteration 7: SSE = 632535.451925
+Iteration 8: SSE = 629511.701328
+Iteration 9: SSE = 627243.444972
+Iteration 10: SSE = 625682.950300
+Iteration 11: SSE = 624513.514020
+Iteration 12: SSE = 623804.020269
+Iteration 13: SSE = 623250.104782
+
+Run 79
+------
+Iteration 1: SSE = 1058774.000000
+Iteration 2: SSE = 767666.413267
+Iteration 3: SSE = 709556.234250
+Iteration 4: SSE = 682003.335224
+Iteration 5: SSE = 671543.096903
+Iteration 6: SSE = 662079.341638
+Iteration 7: SSE = 647538.392923
+Iteration 8: SSE = 638032.955294
+Iteration 9: SSE = 633090.314675
+Iteration 10: SSE = 630457.145413
+Iteration 11: SSE = 628393.668971
+Iteration 12: SSE = 626709.795732
+Iteration 13: SSE = 625709.790712
+Iteration 14: SSE = 624918.415578
+Iteration 15: SSE = 624254.302846
+Iteration 16: SSE = 623726.254928
+
+Run 80
+------
+Iteration 1: SSE = 995966.000000
+Iteration 2: SSE = 713350.891023
+Iteration 3: SSE = 679153.113114
+Iteration 4: SSE = 662040.604476
+Iteration 5: SSE = 653388.261231
+Iteration 6: SSE = 649090.665177
+Iteration 7: SSE = 645940.433759
+Iteration 8: SSE = 642594.193482
+Iteration 9: SSE = 640246.916818
+Iteration 10: SSE = 638982.216183
+Iteration 11: SSE = 637708.748667
+Iteration 12: SSE = 636032.409200
+Iteration 13: SSE = 634135.377822
+Iteration 14: SSE = 632622.927435
+Iteration 15: SSE = 631607.167774
+Iteration 16: SSE = 630937.502192
+Iteration 17: SSE = 630255.133610
+Iteration 18: SSE = 629409.760196
+Iteration 19: SSE = 628798.565946
+
+Run 81
+------
+Iteration 1: SSE = 1050765.000000
+Iteration 2: SSE = 736310.535079
+Iteration 3: SSE = 682736.902412
+Iteration 4: SSE = 661995.668813
+Iteration 5: SSE = 651150.287165
+Iteration 6: SSE = 644620.714998
+Iteration 7: SSE = 640717.652782
+Iteration 8: SSE = 637641.407479
+Iteration 9: SSE = 635053.290959
+Iteration 10: SSE = 633131.030547
+Iteration 11: SSE = 631697.421791
+Iteration 12: SSE = 630446.046997
+Iteration 13: SSE = 629227.445834
+Iteration 14: SSE = 627929.069891
+Iteration 15: SSE = 626243.090203
+Iteration 16: SSE = 624649.665822
+Iteration 17: SSE = 623088.016320
+Iteration 18: SSE = 621895.393280
+Iteration 19: SSE = 620804.258110
+Iteration 20: SSE = 619796.036995
+Iteration 21: SSE = 618960.026586
+Iteration 22: SSE = 618404.243395
+
+Run 82
+------
+Iteration 1: SSE = 1045611.000000
+Iteration 2: SSE = 763696.155806
+Iteration 3: SSE = 711560.311102
+Iteration 4: SSE = 689526.478507
+Iteration 5: SSE = 673579.708387
+Iteration 6: SSE = 666332.065941
+Iteration 7: SSE = 662356.454578
+Iteration 8: SSE = 659809.310239
+Iteration 9: SSE = 657316.364968
+Iteration 10: SSE = 654175.024192
+Iteration 11: SSE = 650849.581214
+Iteration 12: SSE = 648525.833006
+Iteration 13: SSE = 646672.999634
+Iteration 14: SSE = 644368.336032
+Iteration 15: SSE = 641854.438474
+Iteration 16: SSE = 639561.403359
+Iteration 17: SSE = 637961.961953
+Iteration 18: SSE = 636761.342648
+Iteration 19: SSE = 635959.857125
+Iteration 20: SSE = 635211.587079
+Iteration 21: SSE = 634264.129897
+Iteration 22: SSE = 633044.382026
+Iteration 23: SSE = 631639.902539
+Iteration 24: SSE = 630609.912916
+Iteration 25: SSE = 629693.007408
+Iteration 26: SSE = 628955.130092
+Iteration 27: SSE = 628488.537048
+
+Run 83
+------
+Iteration 1: SSE = 996513.000000
+Iteration 2: SSE = 709370.087609
+Iteration 3: SSE = 669130.712075
+Iteration 4: SSE = 655056.569441
+Iteration 5: SSE = 648735.325306
+Iteration 6: SSE = 644474.570579
+Iteration 7: SSE = 641116.624818
+Iteration 8: SSE = 637352.566586
+Iteration 9: SSE = 634374.892833
+Iteration 10: SSE = 632314.048536
+Iteration 11: SSE = 631392.364632
+Iteration 12: SSE = 630772.254114
+
+Run 84
+------
+Iteration 1: SSE = 1000186.000000
+Iteration 2: SSE = 730597.197157
+Iteration 3: SSE = 684501.387657
+Iteration 4: SSE = 658041.248584
+Iteration 5: SSE = 642698.008589
+Iteration 6: SSE = 637379.783108
+Iteration 7: SSE = 633629.841832
+Iteration 8: SSE = 631152.551714
+Iteration 9: SSE = 629647.054544
+Iteration 10: SSE = 628446.206898
+Iteration 11: SSE = 627629.748737
+Iteration 12: SSE = 626887.173897
+Iteration 13: SSE = 626236.451190
+Iteration 14: SSE = 625610.111598
+Iteration 15: SSE = 624957.422826
+Iteration 16: SSE = 624113.783194
+Iteration 17: SSE = 623209.163495
+Iteration 18: SSE = 622322.887897
+Iteration 19: SSE = 621475.645154
+Iteration 20: SSE = 620871.325710
+
+Run 85
+------
+Iteration 1: SSE = 1000438.000000
+Iteration 2: SSE = 711463.187287
+Iteration 3: SSE = 675736.989223
+Iteration 4: SSE = 658331.320323
+Iteration 5: SSE = 646055.477803
+Iteration 6: SSE = 638279.667726
+Iteration 7: SSE = 634192.650595
+Iteration 8: SSE = 631569.899939
+Iteration 9: SSE = 629706.941747
+Iteration 10: SSE = 628568.883796
+Iteration 11: SSE = 627689.526886
+Iteration 12: SSE = 626546.905054
+Iteration 13: SSE = 624683.708524
+Iteration 14: SSE = 623874.784355
+Iteration 15: SSE = 623429.672140
+
+Run 86
+------
+Iteration 1: SSE = 1006052.000000
+Iteration 2: SSE = 710474.360373
+Iteration 3: SSE = 667876.740272
+Iteration 4: SSE = 648702.217003
+Iteration 5: SSE = 639530.711755
+Iteration 6: SSE = 634535.252024
+Iteration 7: SSE = 631211.008447
+Iteration 8: SSE = 628881.441518
+Iteration 9: SSE = 626909.399097
+Iteration 10: SSE = 625120.437375
+Iteration 11: SSE = 623776.154424
+Iteration 12: SSE = 622975.964326
+Iteration 13: SSE = 622545.366797
+
+Run 87
+------
+Iteration 1: SSE = 1019279.000000
+Iteration 2: SSE = 770189.833679
+Iteration 3: SSE = 716846.891417
+Iteration 4: SSE = 685350.407221
+Iteration 5: SSE = 665284.163356
+Iteration 6: SSE = 652829.663959
+Iteration 7: SSE = 645532.444937
+Iteration 8: SSE = 639484.922727
+Iteration 9: SSE = 636013.081408
+Iteration 10: SSE = 633983.136108
+Iteration 11: SSE = 632575.912420
+Iteration 12: SSE = 631287.425559
+Iteration 13: SSE = 629981.872787
+Iteration 14: SSE = 628743.352340
+Iteration 15: SSE = 627655.078331
+Iteration 16: SSE = 626815.358591
+Iteration 17: SSE = 626237.795094
+
+Run 88
+------
+Iteration 1: SSE = 1038716.000000
+Iteration 2: SSE = 787200.188254
+Iteration 3: SSE = 724950.406732
+Iteration 4: SSE = 692964.830011
+Iteration 5: SSE = 676372.475060
+Iteration 6: SSE = 663568.884829
+Iteration 7: SSE = 651170.139202
+Iteration 8: SSE = 643485.991845
+Iteration 9: SSE = 638613.469244
+Iteration 10: SSE = 634813.376914
+Iteration 11: SSE = 631588.074205
+Iteration 12: SSE = 629397.469515
+Iteration 13: SSE = 628053.489698
+Iteration 14: SSE = 627166.884026
+Iteration 15: SSE = 626525.322683
+Iteration 16: SSE = 626059.665891
+
+Run 89
+------
+Iteration 1: SSE = 1069626.000000
+Iteration 2: SSE = 747029.998526
+Iteration 3: SSE = 702828.942161
+Iteration 4: SSE = 678370.231286
+Iteration 5: SSE = 666439.520861
+Iteration 6: SSE = 658262.152961
+Iteration 7: SSE = 653254.083185
+Iteration 8: SSE = 649753.838837
+Iteration 9: SSE = 646883.372010
+Iteration 10: SSE = 645327.744046
+Iteration 11: SSE = 644424.525098
+Iteration 12: SSE = 643447.001079
+Iteration 13: SSE = 642502.206648
+Iteration 14: SSE = 641659.098528
+Iteration 15: SSE = 640701.881472
+Iteration 16: SSE = 639522.210182
+Iteration 17: SSE = 637282.554522
+Iteration 18: SSE = 634413.746248
+Iteration 19: SSE = 631859.335416
+Iteration 20: SSE = 630703.568031
+Iteration 21: SSE = 629740.390134
+Iteration 22: SSE = 629174.504937
+
+Run 90
+------
+Iteration 1: SSE = 1027176.000000
+Iteration 2: SSE = 723662.200474
+Iteration 3: SSE = 676448.982511
+Iteration 4: SSE = 656691.739618
+Iteration 5: SSE = 645102.265458
+Iteration 6: SSE = 637228.648574
+Iteration 7: SSE = 632529.548048
+Iteration 8: SSE = 630474.759704
+Iteration 9: SSE = 629339.424680
+Iteration 10: SSE = 628546.959759
+Iteration 11: SSE = 627924.346539
+
+Run 91
+------
+Iteration 1: SSE = 1003801.000000
+Iteration 2: SSE = 704966.615486
+Iteration 3: SSE = 679005.830311
+Iteration 4: SSE = 665836.479063
+Iteration 5: SSE = 651160.799431
+Iteration 6: SSE = 645167.062334
+Iteration 7: SSE = 642114.879078
+Iteration 8: SSE = 639703.090588
+Iteration 9: SSE = 637717.573461
+Iteration 10: SSE = 635987.195588
+Iteration 11: SSE = 634731.011222
+Iteration 12: SSE = 633785.667974
+Iteration 13: SSE = 633010.964396
+Iteration 14: SSE = 632368.771235
+Iteration 15: SSE = 631576.057021
+Iteration 16: SSE = 630830.412557
+Iteration 17: SSE = 630005.314461
+Iteration 18: SSE = 629167.492966
+Iteration 19: SSE = 628533.082175
+Iteration 20: SSE = 628143.090874
+
+Run 92
+------
+Iteration 1: SSE = 1062718.000000
+Iteration 2: SSE = 731813.355660
+Iteration 3: SSE = 693418.416787
+Iteration 4: SSE = 671277.632560
+Iteration 5: SSE = 656786.222363
+Iteration 6: SSE = 645236.300864
+Iteration 7: SSE = 638022.910817
+Iteration 8: SSE = 634502.101952
+Iteration 9: SSE = 631959.867846
+Iteration 10: SSE = 629571.926183
+Iteration 11: SSE = 628141.597465
+Iteration 12: SSE = 627239.656110
+Iteration 13: SSE = 626387.755138
+Iteration 14: SSE = 625398.878057
+Iteration 15: SSE = 624601.613630
+Iteration 16: SSE = 623930.860532
+Iteration 17: SSE = 623416.536844
+
+Run 93
+------
+Iteration 1: SSE = 1046887.000000
+Iteration 2: SSE = 748701.253562
+Iteration 3: SSE = 686721.473466
+Iteration 4: SSE = 666566.324758
+Iteration 5: SSE = 657331.524928
+Iteration 6: SSE = 649986.672936
+Iteration 7: SSE = 645128.233626
+Iteration 8: SSE = 641390.817363
+Iteration 9: SSE = 637986.091047
+Iteration 10: SSE = 635275.237707
+Iteration 11: SSE = 632827.353037
+Iteration 12: SSE = 630129.853344
+Iteration 13: SSE = 628005.114702
+Iteration 14: SSE = 626287.448546
+Iteration 15: SSE = 624837.769643
+Iteration 16: SSE = 623796.310764
+Iteration 17: SSE = 623275.744884
+
+Run 94
+------
+Iteration 1: SSE = 1030844.000000
+Iteration 2: SSE = 755972.896919
+Iteration 3: SSE = 703588.751811
+Iteration 4: SSE = 675997.968584
+Iteration 5: SSE = 660707.318666
+Iteration 6: SSE = 654161.654868
+Iteration 7: SSE = 648847.416756
+Iteration 8: SSE = 642433.614888
+Iteration 9: SSE = 635764.552936
+Iteration 10: SSE = 632510.355894
+Iteration 11: SSE = 630831.754898
+Iteration 12: SSE = 629675.085828
+Iteration 13: SSE = 628699.001623
+Iteration 14: SSE = 627982.733499
+Iteration 15: SSE = 627411.976982
+
+Run 95
+------
+Iteration 1: SSE = 988784.000000
+Iteration 2: SSE = 736725.429467
+Iteration 3: SSE = 696393.823793
+Iteration 4: SSE = 666433.810490
+Iteration 5: SSE = 649037.164682
+Iteration 6: SSE = 642465.906504
+Iteration 7: SSE = 637694.569220
+Iteration 8: SSE = 633304.522911
+Iteration 9: SSE = 628740.831025
+Iteration 10: SSE = 626024.861031
+Iteration 11: SSE = 624381.993145
+Iteration 12: SSE = 623194.898006
+Iteration 13: SSE = 622445.055443
+Iteration 14: SSE = 621773.380378
+Iteration 15: SSE = 621126.421788
+Iteration 16: SSE = 620394.550612
+Iteration 17: SSE = 619479.114586
+Iteration 18: SSE = 618762.959489
+Iteration 19: SSE = 618318.957098
+
+Run 96
+------
+Iteration 1: SSE = 979966.000000
+Iteration 2: SSE = 691414.690132
+Iteration 3: SSE = 665210.306796
+Iteration 4: SSE = 651420.486800
+Iteration 5: SSE = 643263.227355
+Iteration 6: SSE = 638919.383406
+Iteration 7: SSE = 635456.742410
+Iteration 8: SSE = 632814.226774
+Iteration 9: SSE = 630458.531615
+Iteration 10: SSE = 628991.785004
+Iteration 11: SSE = 628043.228397
+Iteration 12: SSE = 627349.887700
+Iteration 13: SSE = 626901.740988
+
+Run 97
+------
+Iteration 1: SSE = 971414.000000
+Iteration 2: SSE = 713103.507897
+Iteration 3: SSE = 677630.163410
+Iteration 4: SSE = 660158.621331
+Iteration 5: SSE = 649349.055950
+Iteration 6: SSE = 642813.691509
+Iteration 7: SSE = 637944.803418
+Iteration 8: SSE = 634067.870425
+Iteration 9: SSE = 631552.927597
+Iteration 10: SSE = 629381.324524
+Iteration 11: SSE = 627294.616556
+Iteration 12: SSE = 625660.961316
+Iteration 13: SSE = 624560.187983
+Iteration 14: SSE = 623779.682497
+Iteration 15: SSE = 623138.707655
+Iteration 16: SSE = 622552.550503
+
+Run 98
+------
+Iteration 1: SSE = 986638.000000
+Iteration 2: SSE = 715842.007621
+Iteration 3: SSE = 682256.433231
+Iteration 4: SSE = 664496.553926
+Iteration 5: SSE = 650209.416688
+Iteration 6: SSE = 639767.468952
+Iteration 7: SSE = 633411.447030
+Iteration 8: SSE = 629191.354109
+Iteration 9: SSE = 626603.462576
+Iteration 10: SSE = 624702.478089
+Iteration 11: SSE = 623283.353624
+Iteration 12: SSE = 622203.397185
+Iteration 13: SSE = 621336.644962
+Iteration 14: SSE = 620660.694380
+Iteration 15: SSE = 620092.891466
+
+Run 99
+------
+Iteration 1: SSE = 1001040.000000
+Iteration 2: SSE = 740699.741445
+Iteration 3: SSE = 690168.163756
+Iteration 4: SSE = 662865.171647
+Iteration 5: SSE = 648776.244691
+Iteration 6: SSE = 642259.323860
+Iteration 7: SSE = 638987.958935
+Iteration 8: SSE = 636836.866961
+Iteration 9: SSE = 635231.766900
+Iteration 10: SSE = 633460.260184
+Iteration 11: SSE = 631420.053680
+Iteration 12: SSE = 630594.456923
+Iteration 13: SSE = 630171.882582
+
+Run 100
+-------
+Iteration 1: SSE = 991728.000000
+Iteration 2: SSE = 757753.185028
+Iteration 3: SSE = 724144.374218
+Iteration 4: SSE = 698977.844778
+Iteration 5: SSE = 687054.923199
+Iteration 6: SSE = 680172.541983
+Iteration 7: SSE = 675429.120388
+Iteration 8: SSE = 670983.959375
+Iteration 9: SSE = 666342.481591
+Iteration 10: SSE = 660518.133759
+Iteration 11: SSE = 653253.679907
+Iteration 12: SSE = 646135.059234
+Iteration 13: SSE = 640752.222108
+Iteration 14: SSE = 637100.663124
+Iteration 15: SSE = 634908.218569
+Iteration 16: SSE = 633793.062767
+Iteration 17: SSE = 633083.882173
+Iteration 18: SSE = 632504.462163
+
+Best Run: 37: SSE = 616139.274179

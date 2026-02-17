@@ -1,24 +1,31 @@
+/*
+    Coding Standards: C++ Core Guidelines
+    https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+    C++ language standard version: C++20
+*/
 #pragma once
 #include <iostream>
 #include <vector>
 #include <string>
 #include <set>
+
+using DataPoints = std::vector<std::vector<double>>;
+
 class Dataset {
     private:
+        std::string m_inputFile;
         int m_numOfPoints;
         int m_dimensions;
-        std::vector<std::vector<double>> m_dataPoints;
-        std::vector<std::vector<double>> m_clusterCenters;
+        DataPoints m_dataPoints;
 
-        void setRandomClusterCenters(int k);
-        std::set<int> selectRandomIndices(int k);
+        std::set<int> selectRandomIndices(int numOfClusters) const;
     public:
-        Dataset(int numOfPoints, int dimensions, const std::vector<std::vector<double>>& dataPoints)
-            : m_numOfPoints(numOfPoints), m_dimensions(dimensions), m_dataPoints(dataPoints) {}
+        Dataset(int numOfPoints, int dimensions, const DataPoints& dataPoints, const std::string& inputFile = "")
+            : m_numOfPoints(numOfPoints), m_dimensions(dimensions), m_dataPoints(dataPoints), m_inputFile(inputFile) {}
         void printDataset() const;
-        void outputClusterCenters(std::vector<std::vector<double>> clusterCenters, const std::string& inputFile) const;
         int getNumOfPoints() const { return m_numOfPoints; }
         int getDimensions() const { return m_dimensions; }
-        const std::vector<std::vector<double>>& getDataPoints() const { return m_dataPoints; }
-        std::vector<std::vector<double>> getRandomClusterCenters(int k);
+        const DataPoints& getDataPoints() const { return m_dataPoints; }
+        const std::string& getInputFile() const { return m_inputFile; }
+        DataPoints getRandomClusterCenters(int numOfClusters) const;
 };

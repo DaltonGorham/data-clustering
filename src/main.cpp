@@ -4,16 +4,16 @@
     C++ language standard version: C++20
 */
 #include <iostream>
-#include <string>
 #include "../include/FileParser.h"
 #include "../include/Utilities.h"
-
-const int ARGS = 6;
+#include "../include/KMeans.h"
 
 int main(int argc, char* argv[]) {
-    Utilities::validateArgs(argc, argv, ARGS);
-    auto lines = FileParser::readFile(argv[INPUT_FILE]);
-    Dataset dataset = FileParser::parseFileContents(lines);
-    std::vector<std::vector<double>> clusterCenters = dataset.getRandomClusterCenters(std::stoi(argv[NUMBER_OF_CLUSTERS]));
-    dataset.outputClusterCenters(clusterCenters, argv[INPUT_FILE]);
+    auto config = Config::parseArgs(argc, argv);
+
+    auto lines = FileParser::readFile(config.inputFile);
+    Dataset dataset = FileParser::parseFileContents(lines, config.inputFile);
+    KMeans kmeans(config.numOfClusters, config.maxIterations,
+                  config.convergenceThreshold, config.numOfRuns);
+    kmeans.run(dataset);
 }
