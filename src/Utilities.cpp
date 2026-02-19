@@ -9,6 +9,9 @@
 #include <string>
 #include <filesystem>
 #include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <limits>
 
 namespace fs = std::filesystem;
 
@@ -104,6 +107,12 @@ bool Utilities::validateRuns(char* runsArg) {
         if (!std::isdigit(c)) return false;
     }
     return std::stoi(argString) > 0;
+}
+
+std::string Utilities::doubleToStr(double value) {
+    std::ostringstream oss;
+    oss << std::setprecision(std::numeric_limits<double>::digits10) << value;
+    return oss.str();
 }
 
 void Utilities::writeToFile(const std::string& inputFile, const std::string& lines) {

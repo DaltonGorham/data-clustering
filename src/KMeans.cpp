@@ -99,7 +99,7 @@ void KMeans::run(const Dataset& dataset) {
             
             updateClusterCenters(clusterCenterIndices, points, dimensions);
             
-            output += "Iteration " + std::to_string(iteration + 1) + ": SSE = " + std::to_string(newSSE) + "\n";
+            output += "Iteration " + std::to_string(iteration + 1) + ": SSE = " + Utilities::doubleToStr(newSSE) + "\n";
             
             if (iteration > 0) {
                 converged = (sse - newSSE) / sse < m_convergenceThreshold;
@@ -122,6 +122,6 @@ void KMeans::run(const Dataset& dataset) {
     }
     
     m_SSE = bestSSE;
-    output += "Best Run: " + std::to_string(bestRun + 1) + ": SSE = " + std::to_string(bestSSE) + "\n";
+    output += "Best Run: " + std::to_string(bestRun + 1) + ": SSE = " + Utilities::doubleToStr(bestSSE) + "\n";
     Utilities::writeToFile(dataset.getInputFile(), output);
 }

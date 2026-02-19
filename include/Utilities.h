@@ -30,6 +30,7 @@ class Utilities {
     public:
         static void validateArgs(int argc, char* argv[], int expectedArgs);
         static void writeToFile(const std::string& inputFile, const std::string& lines);
+        static std::string doubleToStr(double value);
     private:
         static void validateNumberOfArgs(int argc, char* argv[], int expectedArgs);
         static void validateArgTypes(char* argv[]);
