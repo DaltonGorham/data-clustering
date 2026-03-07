@@ -13,6 +13,7 @@ int main(int argc, char* argv[]) {
 
     auto lines = FileParser::readFile(config.inputFile);
     Dataset dataset = FileParser::parseFileContents(lines, config.inputFile);
+    dataset.normalize();
     KMeans kmeans(config.numOfClusters, config.maxIterations,
                   config.convergenceThreshold, config.numOfRuns);
     kmeans.run(dataset);

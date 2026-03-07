@@ -5,6 +5,7 @@
 */
 #include "../include/Dataset.h"
 #include "../include/FileParser.h"
+#include <fstream>
 #include <sstream>
 #include <ranges>
 #include <random>
@@ -76,14 +77,39 @@ DataPoints Dataset::getRandomClusterCenters(int numOfClusters) const {
     return clusterCenters;
 }
 
+// normalize each column to the range [0, 1] using min-max normalization
+// formula: v' = (v - min) / (max - min)
+void Dataset::normalize() {
+    for (int dim = 0; dim < m_dimensions; dim++) {
+        double minVal = m_dataPoints[0][dim];
+        double maxVal = m_dataPoints[0][dim];
+
+        for (const auto& point : m_dataPoints) {
+            if (point[dim] < minVal) minVal = point[dim];
+            if (point[dim] > maxVal) maxVal = point[dim];
+        }
+
+        for (auto& point : m_dataPoints) {
+            if (maxVal - minVal == 0) {
+                point[dim] = 0.0; // avoid division by zero
+            } else {
+                point[dim] = (point[dim] - minVal) / (maxVal - minVal);
+            }
+        }
+    }
+}
+
 
 void Dataset::printDataset() const {
+    std::ofstream outFile(m_inputFile + "_normalized.txt");
     std::cout << "Number of Points: " << m_numOfPoints << "\n";
     std::cout << "Dimensions: " << m_dimensions << "\n";
     for (const auto& point : m_dataPoints) {
         for (const auto& value : point) {
             std::cout << value << " ";
+            outFile << value << " ";
         }
         std::cout << "\n";
+        outFile << "\n";
     }
 }
