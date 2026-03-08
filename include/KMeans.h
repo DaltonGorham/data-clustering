@@ -5,15 +5,13 @@
 */
 #pragma once
 #include "Dataset.h"
+#include "../include/Utilities.h"
 #include <map>
 #include <utility>
 
 class KMeans {
     private:
-        int m_numOfClusters;
-        int m_maxIterations;
-        double m_convergenceThreshold;
-        int m_numOfRuns;
+        Config m_config;
         double m_SSE;
         DataPoints m_clusterCenters;
 
@@ -21,9 +19,8 @@ class KMeans {
         void updateClusterCenters(std::vector<int>& clusterCenterIndices, const DataPoints& dataPoints, int dimensions);
         std::pair<int, double> getClosestClusterCenter(const std::vector<double>& point, const DataPoints& clusterCenters);
     public:
-        KMeans(int numOfClusters, int maxIterations, double convergenceThreshold, int numOfRuns)
-            : m_numOfClusters(numOfClusters), m_maxIterations(maxIterations), m_convergenceThreshold(convergenceThreshold),
-              m_numOfRuns(numOfRuns), m_SSE(0.0) {}
+        KMeans(const Config& config)
+            : m_config(config), m_SSE(0.0) {}
         void run(const Dataset& dataset);
         double getSSE() const { return m_SSE; }
         const DataPoints& getClusterCenters() const { return m_clusterCenters; }

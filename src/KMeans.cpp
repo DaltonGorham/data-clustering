@@ -47,8 +47,8 @@ std::pair<int, double> KMeans::getClosestClusterCenter(const std::vector<double>
 */
 void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const DataPoints& dataPoints, int dimensions) {
 
-    DataPoints newCenters(m_numOfClusters, std::vector<double>(dimensions, 0.0));
-    std::vector<int> counts(m_numOfClusters, 0);
+    DataPoints newCenters(m_config.numOfClusters, std::vector<double>(dimensions, 0.0));
+    std::vector<int> counts(m_config.numOfClusters, 0);
     
     for (int pointIndex = 0; pointIndex < clusterCenterIndices.size(); pointIndex++) {
         int cluster = clusterCenterIndices[pointIndex];
@@ -58,7 +58,7 @@ void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const 
         }
     }
 
-    for (int cluster = 0; cluster < m_numOfClusters; cluster++) {
+    for (int cluster = 0; cluster < m_config.numOfClusters; cluster++) {
         for (int d = 0; d < dimensions; d++) {
             newCenters[cluster][d] /= counts[cluster];
         }
@@ -67,7 +67,7 @@ void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const 
 }
 
 void KMeans::run(const Dataset& dataset) {
-    m_clusterCenters = dataset.getRandomClusterCenters(m_numOfClusters);
+    m_clusterCenters = dataset.getRandomClusterCenters(m_config.numOfClusters);
     int dimensions = dataset.getDimensions();
     const auto& points = dataset.getDataPoints();
     std::vector<int> clusterCenterIndices(points.size());
@@ -75,10 +75,10 @@ void KMeans::run(const Dataset& dataset) {
     std::string output = "";
     double sse = 0.0;
 
-   for (int run = 0; run < m_numOfRuns; run++) {
+   for (int run = 0; run < m_config.numOfRuns; run++) {
     
         if (run > 0) {
-            m_clusterCenters = dataset.getRandomClusterCenters(m_numOfClusters);
+            m_clusterCenters = dataset.getRandomClusterCenters(m_config.numOfClusters);
         }
         
         std::string runString = std::to_string(run + 1);
@@ -88,7 +88,7 @@ void KMeans::run(const Dataset& dataset) {
         bool converged = false;
         sse = 0.0;  
         
-        while (iteration < m_maxIterations && !converged) {
+        while (iteration < m_config.maxIterations && !converged) {
             double newSSE = 0.0;
 
             for (int point = 0; point < points.size(); point++) {
@@ -102,7 +102,7 @@ void KMeans::run(const Dataset& dataset) {
             output += "Iteration " + std::to_string(iteration + 1) + ": SSE = " + Utilities::doubleToStr(newSSE) + "\n";
             
             if (iteration > 0) {
-                converged = (sse - newSSE) / sse < m_convergenceThreshold;
+                converged = (sse - newSSE) / sse < m_config.convergenceThreshold;
             }
             sse = newSSE;
             iteration++;

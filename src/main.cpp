@@ -10,11 +10,9 @@
 
 int main(int argc, char* argv[]) {
     auto config = Config::parseArgs(argc, argv);
-
     auto lines = FileParser::readFile(config.inputFile);
     Dataset dataset = FileParser::parseFileContents(lines, config.inputFile);
     dataset.normalize();
-    KMeans kmeans(config.numOfClusters, config.maxIterations,
-                  config.convergenceThreshold, config.numOfRuns);
+    KMeans kmeans(config);
     kmeans.run(dataset);
 }
