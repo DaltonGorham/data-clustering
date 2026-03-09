@@ -1,0 +1,21 @@
+Dataset,Normalization,Init Method,Best Initial SSE,Best Final SSE,Best Iterations
+ecoli,min-max,random_init,24.8888277233359,17.4147470502137,5
+ecoli,min-max,random_partition,54.2394104747818,17.4161222113731,4
+glass,min-max,random_init,25.1450820173124,18.2446528500896,4
+glass,min-max,random_partition,43.1521753602417,18.244872709233,4
+ionosphere,min-max,random_init,712.340368425224,628.896023634624,3
+ionosphere,min-max,random_partition,784.572006555097,628.896023634624,3
+iris_bezdek,min-max,random_init,8.04683886911665,6.98221647378523,3
+iris_bezdek,min-max,random_partition,24.3615564530214,6.98221647378523,3
+landsat,min-max,random_init,2547.56711338739,1741.82839804453,5
+landsat,min-max,random_partition,7856.65670629874,1741.76799911654,6
+letter_recognition,min-max,random_init,4122.93777777782,2736.71321871865,10
+letter_recognition,min-max,random_partition,7131.9431277954,2742.38941824628,11
+segmentation,min-max,random_init,601.307681562191,386.996323896148,6
+segmentation,min-max,random_partition,1593.78513705601,386.994315163441,4
+vehicle,min-max,random_init,298.514244287162,223.54257831895,5
+vehicle,min-max,random_partition,491.846288153451,223.564514054722,6
+wine,min-max,random_init,73.03870990849,48.9540358196266,4
+wine,min-max,random_partition,76.5391569629509,48.9540358196266,4
+yeast,min-max,random_init,92.5684405545625,58.3347429389229,7
+yeast,min-max,random_partition,145.339311491934,58.369538015373,4

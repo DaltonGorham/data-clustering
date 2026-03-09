@@ -13,6 +13,15 @@ int main(int argc, char* argv[]) {
     auto lines = FileParser::readFile(config.inputFile);
     Dataset dataset = FileParser::parseFileContents(lines, config.inputFile);
     dataset.normalize();
-    KMeans kmeans(config);
-    kmeans.run(dataset);
+
+    KMeans randomInit(config, InitMethod::RandomInit);
+    randomInit.run(dataset);
+
+    KMeans randomPartition(config, InitMethod::RandomPartition);
+    randomPartition.run(dataset);
+
+    Utilities::writeToCSV(
+        config.inputFile,
+        { randomInit.getPerformance(), randomPartition.getPerformance() }
+    );
 }

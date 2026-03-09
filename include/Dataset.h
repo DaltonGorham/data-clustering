@@ -29,4 +29,5 @@ class Dataset {
         const DataPoints& getDataPoints() const { return m_dataPoints; }
         const std::string& getInputFile() const { return m_inputFile; }
         DataPoints getRandomClusterCenters(int numOfClusters) const;
+        DataPoints getRandomPartitionCenters(int numOfClusters) const;
 };

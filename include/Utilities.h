@@ -5,6 +5,7 @@
 */
 #pragma once
 #include <string>
+#include <vector>
 
 const int EXPECTED_ARGS = 6;
 
@@ -26,10 +27,18 @@ struct Config {
     static Config parseArgs(int argc, char* argv[]);
 };
 
+struct InitPerformace {
+    std::string initMethod;
+    double initialSSE;
+    double finalSSE;
+    int numOfIterations;
+};
+
 class Utilities {
     public:
         static void validateArgs(int argc, char* argv[], int expectedArgs);
-        static void writeToFile(const std::string& inputFile, const std::string& lines);
+        static void writeToFile(const std::string& inputFile, const std::string& lines, const std::string& suffix);
+        static void writeToCSV(const std::string& inputFile, const std::vector<InitPerformace>& results);
         static std::string doubleToStr(double value);
     private:
         static void validateNumberOfArgs(int argc, char* argv[], int expectedArgs);

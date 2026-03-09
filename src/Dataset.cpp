@@ -77,6 +77,43 @@ DataPoints Dataset::getRandomClusterCenters(int numOfClusters) const {
     return clusterCenters;
 }
 
+
+DataPoints Dataset::getRandomPartitionCenters(int numOfClusters) const {
+    if (numOfClusters > m_numOfPoints) {
+        std::cerr << "Error: Number of clusters requested: " << numOfClusters
+                    << " exceeds number of data points: " << m_numOfPoints << "\n";
+        std::exit(EXIT_FAILURE);
+    }
+
+    std::vector<int> clusterCenterIndices(m_numOfPoints);
+    std::mt19937 generator(std::random_device{}());
+    std::uniform_int_distribution<int> distribution(0, numOfClusters - 1);
+
+    for (int point = 0; point < m_numOfPoints; point++) {
+        clusterCenterIndices[point] = distribution(generator);
+    }
+
+    DataPoints clusterCenters(numOfClusters, std::vector<double>(m_dimensions, 0.0));
+    std::vector<int> counts(numOfClusters, 0);
+    
+    for (int pointIndex = 0; pointIndex < clusterCenterIndices.size(); pointIndex++) {
+        int cluster = clusterCenterIndices[pointIndex];
+        counts[cluster]++;
+        for (int d = 0; d < m_dimensions; d++) {
+            clusterCenters[cluster][d] += m_dataPoints[pointIndex][d];
+        }
+    }
+
+    for (int cluster = 0; cluster < numOfClusters; cluster++) {
+        for (int d = 0; d < m_dimensions; d++) {
+            clusterCenters[cluster][d] /= counts[cluster];
+        }
+    }
+    
+    return clusterCenters;
+}
+
+
 // normalize each column to the range [0, 1] using min-max normalization
 // formula: v' = (v - min) / (max - min)
 void Dataset::normalize() {

@@ -6,22 +6,32 @@
 #pragma once
 #include "Dataset.h"
 #include "../include/Utilities.h"
-#include <map>
 #include <utility>
+#include <vector>
+
+enum class InitMethod {
+    RandomInit,
+    RandomPartition
+};
 
 class KMeans {
     private:
         Config m_config;
-        double m_SSE;
+        InitMethod m_initMethod;
+        InitPerformace m_bestPerformance;
         DataPoints m_clusterCenters;
 
         double getEuclideanDistance(const std::vector<double>&point, const std::vector<double>& centroid);
         void updateClusterCenters(std::vector<int>& clusterCenterIndices, const DataPoints& dataPoints, int dimensions);
         std::pair<int, double> getClosestClusterCenter(const std::vector<double>& point, const DataPoints& clusterCenters);
+        DataPoints getInitialCenters(const Dataset& dataset) const;
+        std::string getInitMethod() const;
+        double assignPointsAndComputeSSE(const DataPoints& points, std::vector<int>& clusterCenterIndices);
+        InitPerformace computeBestPerformance(const std::vector<InitPerformace>& results) const;
     public:
-        KMeans(const Config& config)
-            : m_config(config), m_SSE(0.0) {}
+        KMeans(const Config& config, InitMethod initMethod)
+            : m_config(config), m_initMethod(initMethod), m_bestPerformance{} {}
         void run(const Dataset& dataset);
-        double getSSE() const { return m_SSE; }
         const DataPoints& getClusterCenters() const { return m_clusterCenters; }
+        const InitPerformace& getPerformance() const { return m_bestPerformance; }
 };
