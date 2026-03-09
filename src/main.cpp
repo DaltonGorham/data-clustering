@@ -10,10 +10,18 @@
 
 int main(int argc, char* argv[]) {
     auto config = Config::parseArgs(argc, argv);
-
     auto lines = FileParser::readFile(config.inputFile);
     Dataset dataset = FileParser::parseFileContents(lines, config.inputFile);
-    KMeans kmeans(config.numOfClusters, config.maxIterations,
-                  config.convergenceThreshold, config.numOfRuns);
-    kmeans.run(dataset);
+    dataset.normalize();
+
+    KMeans randomInit(config, InitMethod::RandomInit);
+    randomInit.run(dataset);
+
+    KMeans randomPartition(config, InitMethod::RandomPartition);
+    randomPartition.run(dataset);
+
+    Utilities::writeToCSV(
+        config.inputFile,
+        { randomInit.getPerformance(), randomPartition.getPerformance() }
+    );
 }

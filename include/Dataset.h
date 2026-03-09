@@ -22,10 +22,12 @@ class Dataset {
     public:
         Dataset(int numOfPoints, int dimensions, const DataPoints& dataPoints, const std::string& inputFile = "")
             : m_numOfPoints(numOfPoints), m_dimensions(dimensions), m_dataPoints(dataPoints), m_inputFile(inputFile) {}
+        void normalize();
         void printDataset() const;
         int getNumOfPoints() const { return m_numOfPoints; }
         int getDimensions() const { return m_dimensions; }
         const DataPoints& getDataPoints() const { return m_dataPoints; }
         const std::string& getInputFile() const { return m_inputFile; }
         DataPoints getRandomClusterCenters(int numOfClusters) const;
+        DataPoints getRandomPartitionCenters(int numOfClusters) const;
 };

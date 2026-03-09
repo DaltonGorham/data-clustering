@@ -7,7 +7,7 @@
 #include "../include/Utilities.h"
 #include <iostream>
 #include <stdexcept>
-#include <map>
+#include <vector>
 #include <cmath>
 
 /*
@@ -47,8 +47,8 @@ std::pair<int, double> KMeans::getClosestClusterCenter(const std::vector<double>
 */
 void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const DataPoints& dataPoints, int dimensions) {
 
-    DataPoints newCenters(m_numOfClusters, std::vector<double>(dimensions, 0.0));
-    std::vector<int> counts(m_numOfClusters, 0);
+    DataPoints newCenters(m_config.numOfClusters, std::vector<double>(dimensions, 0.0));
+    std::vector<int> counts(m_config.numOfClusters, 0);
     
     for (int pointIndex = 0; pointIndex < clusterCenterIndices.size(); pointIndex++) {
         int cluster = clusterCenterIndices[pointIndex];
@@ -58,7 +58,7 @@ void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const 
         }
     }
 
-    for (int cluster = 0; cluster < m_numOfClusters; cluster++) {
+    for (int cluster = 0; cluster < m_config.numOfClusters; cluster++) {
         for (int d = 0; d < dimensions; d++) {
             newCenters[cluster][d] /= counts[cluster];
         }
@@ -66,62 +66,86 @@ void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const 
     }
 }
 
+double KMeans::assignPointsAndComputeSSE(const DataPoints& points, std::vector<int>& clusterCenterIndices) {
+    double sse = 0.0;
+    for (int i = 0; i < points.size(); i++) {
+        auto [cluster, distance] = getClosestClusterCenter(points[i], m_clusterCenters);
+        clusterCenterIndices[i] = cluster;
+        sse += distance;
+    }
+    return sse;
+}
+
+InitPerformace KMeans::computeBestPerformance(const std::vector<InitPerformace>& results) const {
+    InitPerformace best = results[0];
+    for (const auto& result : results) {
+        if (result.initialSSE < best.initialSSE) {
+            best.initialSSE = result.initialSSE;
+        }
+        if (result.finalSSE < best.finalSSE) {
+            best.finalSSE = result.finalSSE;
+        }
+        if (result.numOfIterations < best.numOfIterations) {
+            best.numOfIterations = result.numOfIterations;
+        }
+    }
+    return best;
+}
+
+DataPoints KMeans::getInitialCenters(const Dataset& dataset) const {
+    switch (m_initMethod) {
+        case InitMethod::RandomInit:      
+            return dataset.getRandomClusterCenters(m_config.numOfClusters);
+        case InitMethod::RandomPartition: 
+            return dataset.getRandomPartitionCenters(m_config.numOfClusters);
+        default:
+            std::cerr << "Error: Invalid initialization method.\n";
+            std::exit(EXIT_FAILURE);
+    }
+}
+
+std::string KMeans::getInitMethod() const {
+    switch (m_initMethod) {
+        case InitMethod::RandomInit:      
+            return "random_init";
+        case InitMethod::RandomPartition: 
+            return "random_partition";
+        default:
+            std::cerr << "Error: Invalid initialization method.\n";
+            std::exit(EXIT_FAILURE);
+    }
+}
+
 void KMeans::run(const Dataset& dataset) {
-    m_clusterCenters = dataset.getRandomClusterCenters(m_numOfClusters);
     int dimensions = dataset.getDimensions();
     const auto& points = dataset.getDataPoints();
+    m_clusterCenters = getInitialCenters(dataset);
     std::vector<int> clusterCenterIndices(points.size());
-    std::map<int, double> bestRunMap;
-    std::string output = "";
-    double sse = 0.0;
+    std::vector<InitPerformace> results;
 
-   for (int run = 0; run < m_numOfRuns; run++) {
-    
-        if (run > 0) {
-            m_clusterCenters = dataset.getRandomClusterCenters(m_numOfClusters);
-        }
-        
-        std::string runString = std::to_string(run + 1);
-        output += "Run " + runString + "\n" + std::string(4 + runString.length(), '-') + "\n";
+    for (int run = 0; run < m_config.numOfRuns; run++) {
+
+        if (run > 0) m_clusterCenters = getInitialCenters(dataset);
+
+        // before clustering phase, measure performance of initial cluster centers
+        double runInitialSSE = assignPointsAndComputeSSE(points, clusterCenterIndices);
 
         int iteration = 0;
         bool converged = false;
-        sse = 0.0;  
-        
-        while (iteration < m_maxIterations && !converged) {
-            double newSSE = 0.0;
+        double sse = 0.0;
 
-            for (int point = 0; point < points.size(); point++) {
-                auto [cluster, distance] = getClosestClusterCenter(points[point], m_clusterCenters);
-                clusterCenterIndices[point] = cluster;
-                newSSE += distance;
-            }
-            
+        while (iteration < m_config.maxIterations && !converged) {
+            double newSSE = assignPointsAndComputeSSE(points, clusterCenterIndices);
             updateClusterCenters(clusterCenterIndices, points, dimensions);
-            
-            output += "Iteration " + std::to_string(iteration + 1) + ": SSE = " + Utilities::doubleToStr(newSSE) + "\n";
-            
+
             if (iteration > 0) {
-                converged = (sse - newSSE) / sse < m_convergenceThreshold;
+                converged = (sse - newSSE) / sse < m_config.convergenceThreshold;
             }
             sse = newSSE;
             iteration++;
         }
-        output += "\n";
-        bestRunMap[run] = sse;
+        results.push_back({ getInitMethod(), runInitialSSE, sse, iteration });
     }
 
-    double bestSSE = bestRunMap.begin()->second;
-    int bestRun = 0;
-    
-    for (const auto& [run, runSSE] : bestRunMap) {
-        if (runSSE < bestSSE) {
-            bestSSE = runSSE;
-            bestRun = run;
-        }
-    }
-    
-    m_SSE = bestSSE;
-    output += "Best Run: " + std::to_string(bestRun + 1) + ": SSE = " + Utilities::doubleToStr(bestSSE) + "\n";
-    Utilities::writeToFile(dataset.getInputFile(), output);
+    m_bestPerformance = computeBestPerformance(results);
 }

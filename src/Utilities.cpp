@@ -115,13 +115,31 @@ std::string Utilities::doubleToStr(double value) {
     return oss.str();
 }
 
-void Utilities::writeToFile(const std::string& inputFile, const std::string& lines) {
+void Utilities::writeToCSV(const std::string& inputFile, const std::vector<InitPerformace>& results) {
+    std::string csvPath = "output/summary.csv";
+    bool writeHeader = !fs::exists(csvPath);
+
+    std::ofstream csv(csvPath, std::ios::app);
+    if (writeHeader) {
+        csv << "Dataset,Normalization,Init Method,Best Initial SSE,Best Final SSE,Best Iterations\n";
+    }
+
+    fs::path inputPath(inputFile);
+    std::string dataset = inputPath.stem().string();
+    for (const auto& p : results) {
+        csv << dataset << ",min-max," << p.initMethod << "," << doubleToStr(p.initialSSE) << "," << doubleToStr(p.finalSSE) << "," << p.numOfIterations << "\n";
+    }
+}
+
+// phase 2 output file writing.
+// now serves as debug unless future requirements specify otherwise 
+void Utilities::writeToFile(const std::string& inputFile, const std::string& lines, const std::string& suffix) {
     if (!fs::exists("output")) {
         fs::create_directory("output");
     }
 
     fs::path inputPath(inputFile);
-    std::string outputPath = "output/" + inputPath.stem().string() + "_output.txt";
+    std::string outputPath = "output/" + inputPath.stem().string() + "_" + suffix + "_output.txt";
     std::ofstream outputFile(outputPath);
 
     if (!outputFile.is_open()) {

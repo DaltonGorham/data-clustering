@@ -5,26 +5,33 @@
 */
 #pragma once
 #include "Dataset.h"
-#include <map>
+#include "../include/Utilities.h"
 #include <utility>
+#include <vector>
+
+enum class InitMethod {
+    RandomInit,
+    RandomPartition
+};
 
 class KMeans {
     private:
-        int m_numOfClusters;
-        int m_maxIterations;
-        double m_convergenceThreshold;
-        int m_numOfRuns;
-        double m_SSE;
+        Config m_config;
+        InitMethod m_initMethod;
+        InitPerformace m_bestPerformance;
         DataPoints m_clusterCenters;
 
         double getEuclideanDistance(const std::vector<double>&point, const std::vector<double>& centroid);
         void updateClusterCenters(std::vector<int>& clusterCenterIndices, const DataPoints& dataPoints, int dimensions);
         std::pair<int, double> getClosestClusterCenter(const std::vector<double>& point, const DataPoints& clusterCenters);
+        DataPoints getInitialCenters(const Dataset& dataset) const;
+        std::string getInitMethod() const;
+        double assignPointsAndComputeSSE(const DataPoints& points, std::vector<int>& clusterCenterIndices);
+        InitPerformace computeBestPerformance(const std::vector<InitPerformace>& results) const;
     public:
-        KMeans(int numOfClusters, int maxIterations, double convergenceThreshold, int numOfRuns)
-            : m_numOfClusters(numOfClusters), m_maxIterations(maxIterations), m_convergenceThreshold(convergenceThreshold),
-              m_numOfRuns(numOfRuns), m_SSE(0.0) {}
+        KMeans(const Config& config, InitMethod initMethod)
+            : m_config(config), m_initMethod(initMethod), m_bestPerformance{} {}
         void run(const Dataset& dataset);
-        double getSSE() const { return m_SSE; }
         const DataPoints& getClusterCenters() const { return m_clusterCenters; }
+        const InitPerformace& getPerformance() const { return m_bestPerformance; }
 };
