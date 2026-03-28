@@ -6,3 +6,6 @@ build
 .idea/*
 .DS_Store
 *.log
+data_clustering
+data_clustering.exe
+output/
