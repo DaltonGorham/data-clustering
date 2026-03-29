@@ -136,6 +136,45 @@ void Dataset::normalize() {
     }
 }
 
+/* 
+https://dataminingbook.info/book_html/chap17/book.html 17.7
+CH(k) = tr(SB) / (k −1) tr(SW) / (n −k) = (n −k) / (k −1) * tr(SB) / tr(SW)
+SW: SSE
+SB: The sum of the diagonal elements
+*/
+double Dataset::calinskiHarabaszIndex(
+    const DataPoints& clusterCenters, 
+    const std::vector<int>& clusterAssignments,
+    double sse
+) const {
+    int numOfClusters = clusterCenters.size();
+    std::vector<double> meanOfDataSet(m_dimensions, 0.0);
+    std::vector<int> clusterSizes(numOfClusters, 0);
+    
+    for (int dim = 0; dim < m_dimensions; dim++) {
+        for (const auto& point : m_dataPoints) {
+            meanOfDataSet[dim] += point[dim];
+        }
+        meanOfDataSet[dim] /= m_numOfPoints;
+    }
+
+    // grab cluster sizes for SB calculation. n,i is the number of points in cluster i
+    for (int assignment : clusterAssignments) {
+        clusterSizes[assignment]++;
+    }
+
+    double sb = 0.0;
+
+    for (int cluster = 0; cluster < numOfClusters; cluster++) {
+        for (int dim = 0; dim < m_dimensions; dim++) {
+            sb += clusterSizes[cluster] * (clusterCenters[cluster][dim] - meanOfDataSet[dim]) * (clusterCenters[cluster][dim] - meanOfDataSet[dim]);
+        }
+    }
+
+    if (sse == 0.0) return 0.0; 
+    return static_cast<double>(m_numOfPoints - numOfClusters) / (numOfClusters - 1) * sb / sse;
+}
+
 
 void Dataset::printDataset() const {
     std::ofstream outFile(m_inputFile + "_normalized.txt");

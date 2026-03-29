@@ -14,14 +14,8 @@ int main(int argc, char* argv[]) {
     Dataset dataset = FileParser::parseFileContents(lines, config.inputFile);
     dataset.normalize();
 
-    KMeans randomInit(config, InitMethod::RandomInit);
-    randomInit.run(dataset);
-
     KMeans randomPartition(config, InitMethod::RandomPartition);
     randomPartition.run(dataset);
 
-    Utilities::writeToCSV(
-        config.inputFile,
-        { randomInit.getPerformance(), randomPartition.getPerformance() }
-    );
+    Utilities::writeToCSV(config.inputFile, randomPartition.getKMeansResults());
 }

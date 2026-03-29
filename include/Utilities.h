@@ -4,14 +4,14 @@
     C++ language standard version: C++20
 */
 #pragma once
+#include "KMeansResult.h"
 #include <string>
 #include <vector>
 
-const int EXPECTED_ARGS = 6;
+const int EXPECTED_ARGS = 5;
 
 enum ArgumentPositions {
     INPUT_FILE = 1,
-    NUMBER_OF_CLUSTERS,
     MAX_ITERATIONS,
     CONVERGENCE_THRESHOLD,
     NUMBER_OF_RUNS
@@ -19,10 +19,10 @@ enum ArgumentPositions {
 
 struct Config {
     std::string inputFile;
-    int numOfClusters;
     int maxIterations;
     double convergenceThreshold;
     int numOfRuns;
+    static const int MIN_CLUSTERS = 2;
 
     static Config parseArgs(int argc, char* argv[]);
 };
@@ -39,12 +39,12 @@ class Utilities {
         static void validateArgs(int argc, char* argv[], int expectedArgs);
         static void writeToFile(const std::string& inputFile, const std::string& lines, const std::string& suffix);
         static void writeToCSV(const std::string& inputFile, const std::vector<InitPerformace>& results);
+        static void writeToCSV(const std::string& inputFile, const std::vector<KMeansResult>& results);
         static std::string doubleToStr(double value);
     private:
         static void validateNumberOfArgs(int argc, char* argv[], int expectedArgs);
         static void validateArgTypes(char* argv[]);
         static bool validateInputFile(const char* filePath);
-        static bool validateClusters(char* clusterArg);
         static bool validateIterations(char* iterationsArg);
         static bool validateThreshold(char* thresholdArg);
         static bool validateRuns(char* runsArg);

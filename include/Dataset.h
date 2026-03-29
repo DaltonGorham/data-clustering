@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include <set>
+#include <cmath>
 
 using DataPoints = std::vector<std::vector<double>>;
 
@@ -25,9 +26,12 @@ class Dataset {
         void normalize();
         void printDataset() const;
         int getNumOfPoints() const { return m_numOfPoints; }
+        int getKMax() const { return static_cast<int>(std::round(std::sqrt(m_numOfPoints / 2.0))); }
         int getDimensions() const { return m_dimensions; }
         const DataPoints& getDataPoints() const { return m_dataPoints; }
         const std::string& getInputFile() const { return m_inputFile; }
         DataPoints getRandomClusterCenters(int numOfClusters) const;
         DataPoints getRandomPartitionCenters(int numOfClusters) const;
+        double calinskiHarabaszIndex(const DataPoints& clusterCenters, const std::vector<int>& clusterAssignments, double sse) const;
+        double silhouetteWidth(const DataPoints& clusterCenters, const std::vector<int>& clusterAssignments) const;
 };
