@@ -124,7 +124,7 @@ void Utilities::writeToCSV(const std::string& inputFile, const std::vector<KMean
 
     std::ofstream csv(csvPath, std::ios::app);
     if (writeHeader) {
-        csv << "Dataset,K,CH Index,Silhouette Width\n";
+        csv << "Dataset,K,CH,SW\n";
     }
 
     fs::path inputPath(inputFile);
