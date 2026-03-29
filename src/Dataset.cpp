@@ -175,6 +175,7 @@ double Dataset::calinskiHarabaszIndex(
 
     return static_cast<double>(m_numOfPoints - numOfClusters) / (numOfClusters - 1) * sb / sse;
 }
+
 // https://dataminingbook.info/book_html/chap17/book.html pg. 446
 // s_i = (mu_out_min - mu_in) / max(mu_in, mu_out_min)
 // SC  = (1/n) * sum(s_i)
