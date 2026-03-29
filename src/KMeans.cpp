@@ -158,6 +158,8 @@ void KMeans::run(const Dataset& dataset) {
         kMeansResult.numOfClusters = numOfClusters;
         kMeansResult.calinskiHarabaszIndex = dataset.calinskiHarabaszIndex(
             kMeansResult.bestCenters, kMeansResult.bestClusterAssignments, kMeansResult.bestSSE);
+        kMeansResult.silhouetteWidth = dataset.silhouetteWidth(
+            kMeansResult.bestCenters, kMeansResult.bestClusterAssignments);
         m_kResults.push_back(kMeansResult);
     }
 }

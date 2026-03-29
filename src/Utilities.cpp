@@ -130,8 +130,7 @@ void Utilities::writeToCSV(const std::string& inputFile, const std::vector<KMean
     fs::path inputPath(inputFile);
     std::string dataset = inputPath.stem().string();
     for (const auto& r : results) {
-        csv << dataset << "," << r.numOfClusters << "," << doubleToStr(r.calinskiHarabaszIndex) << "," << 
-        /*doubleToStr(r.silhouetteWidth) << "\n"; */ "0\n";
+        csv << dataset << "," << r.numOfClusters << "," << doubleToStr(r.calinskiHarabaszIndex) << "," << doubleToStr(r.silhouetteWidth) << "\n";
     }
 }
 
