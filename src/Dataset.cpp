@@ -250,6 +250,18 @@ double Dataset::silhouetteWidth(
     return silhouetteWidth / m_numOfPoints;
 }
 
+
+double Dataset::randIndex(const std::vector<int>& clusterAssignments) const {
+    // todo
+    return 0.0;
+}
+
+
+double Dataset::jaccardIndex(const std::vector<int>& clusterAssignments) const {
+    // todo
+    return 0.0;
+}
+
 void Dataset::printDataset() const {
     std::ofstream outFile(m_inputFile + "_normalized.txt");
     std::cout << "Number of Points: " << m_numOfPoints << "\n";

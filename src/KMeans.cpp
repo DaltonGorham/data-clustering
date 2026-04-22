@@ -140,11 +140,13 @@ void KMeans::run(const Dataset& dataset) {
             sse = newSSE;
             iteration++;
         }
-        KMeansResult kMeansResult;
-        kMeansResult.sse = sse;
-        kMeansResult.centers = m_clusterCenters;
-        kMeansResult.clusterAssignments = clusterCenterIndices;
-        // randIndex and jaccardIndex will be stored here
+        KMeansResult kMeansResult{
+            .sse = sse,
+            .randIndex = dataset.randIndex(clusterCenterIndices),
+            .jaccardIndex = dataset.jaccardIndex(clusterCenterIndices),
+            .centers = m_clusterCenters,
+            .clusterAssignments = clusterCenterIndices,
+        };
 
         if (kMeansResult.randIndex > m_bestRandIndex) m_bestRandIndex = kMeansResult.randIndex;
         if (kMeansResult.jaccardIndex > m_bestJaccardIndex) m_bestJaccardIndex = kMeansResult.jaccardIndex;
