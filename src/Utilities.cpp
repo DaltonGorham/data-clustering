@@ -4,6 +4,7 @@
     C++ language standard version: C++20
 */
 #include "../include/Utilities.h"
+#include "../include/KMeansResult.h"
 #include <iostream>
 #include <cstdlib>
 #include <string>
@@ -20,7 +21,6 @@ Config Config::parseArgs(int argc, char* argv[]) {
     Utilities::validateArgs(argc, argv, EXPECTED_ARGS);
     return {
         argv[INPUT_FILE],
-        std::stoi(argv[NUMBER_OF_CLUSTERS]),
         std::stoi(argv[MAX_ITERATIONS]),
         std::stod(argv[CONVERGENCE_THRESHOLD]),
         std::stoi(argv[NUMBER_OF_RUNS])
@@ -36,7 +36,6 @@ void Utilities::validateNumberOfArgs(int argc, char* argv[], int expectedArgs) {
     if (argc != expectedArgs) {
         std::cerr << "Usage: " << argv[0]
             << " <input_file>"
-            << " <number_of_clusters>"
             << " <max_iterations>"
             << " <convergence_threshold>"
             << " <number_of_runs>\n";
@@ -48,10 +47,6 @@ void Utilities::validateArgTypes(char* argv[]) {
     if (!validateInputFile(argv[INPUT_FILE])) {
         std::cerr << "Error: Input file: " << "`" << argv[INPUT_FILE] << "` does not exist relative to the executable.\n";
         std::cerr << "Error: Please provide a valid file path or place the file in the correct directory.\n";
-        std::exit(EXIT_FAILURE);
-    }
-    if (!validateClusters(argv[NUMBER_OF_CLUSTERS])) {
-        std::cerr << "number_of_clusters: " << "`" << argv[NUMBER_OF_CLUSTERS] << "` must be an integer greater than 1.\n";
         std::exit(EXIT_FAILURE);
     }
     if (!validateIterations(argv[MAX_ITERATIONS])) {
@@ -70,14 +65,6 @@ void Utilities::validateArgTypes(char* argv[]) {
 
 bool Utilities::validateInputFile(const char* filePath) {
     return std::filesystem::exists(filePath);
-}
-
-bool Utilities::validateClusters(char* clusterArg) {
-    std::string argString = clusterArg;
-    for (const auto& c : argString) {
-        if (!std::isdigit(c)) return false;
-    }
-    return std::stoi(argString) > 1;
 }
 
 bool Utilities::validateIterations(char* iterationsArg) {
@@ -128,6 +115,22 @@ void Utilities::writeToCSV(const std::string& inputFile, const std::vector<InitP
     std::string dataset = inputPath.stem().string();
     for (const auto& p : results) {
         csv << dataset << ",min-max," << p.initMethod << "," << doubleToStr(p.initialSSE) << "," << doubleToStr(p.finalSSE) << "," << p.numOfIterations << "\n";
+    }
+}
+
+void Utilities::writeToCSV(const std::string& inputFile, const std::vector<KMeansResult>& results) {
+    std::string csvPath = "output/summary-2.csv";
+    bool writeHeader = !fs::exists(csvPath);
+
+    std::ofstream csv(csvPath, std::ios::app);
+    if (writeHeader) {
+        csv << "Dataset,K,CH,SW\n";
+    }
+
+    fs::path inputPath(inputFile);
+    std::string dataset = inputPath.stem().string();
+    for (const auto& r : results) {
+        csv << dataset << "," << r.numOfClusters << "," << doubleToStr(r.calinskiHarabaszIndex) << "," << doubleToStr(r.silhouetteWidth) << "\n";
     }
 }
 

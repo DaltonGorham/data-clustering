@@ -45,10 +45,10 @@ std::pair<int, double> KMeans::getClosestClusterCenter(const std::vector<double>
     dataPoints           - the original dataset points
     dimensions           - number of dimensions in the dataset
 */
-void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const DataPoints& dataPoints, int dimensions) {
+void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const DataPoints& dataPoints, int dimensions, int numOfClusters) {
 
-    DataPoints newCenters(m_config.numOfClusters, std::vector<double>(dimensions, 0.0));
-    std::vector<int> counts(m_config.numOfClusters, 0);
+    DataPoints newCenters(numOfClusters, std::vector<double>(dimensions, 0.0));
+    std::vector<int> counts(numOfClusters, 0);
     
     for (int pointIndex = 0; pointIndex < clusterCenterIndices.size(); pointIndex++) {
         int cluster = clusterCenterIndices[pointIndex];
@@ -58,7 +58,8 @@ void KMeans::updateClusterCenters(std::vector<int>& clusterCenterIndices, const 
         }
     }
 
-    for (int cluster = 0; cluster < m_config.numOfClusters; cluster++) {
+    for (int cluster = 0; cluster < numOfClusters; cluster++) {
+        if (counts[cluster] == 0) continue;
         for (int d = 0; d < dimensions; d++) {
             newCenters[cluster][d] /= counts[cluster];
         }
@@ -92,12 +93,12 @@ InitPerformace KMeans::computeBestPerformance(const std::vector<InitPerformace>&
     return best;
 }
 
-DataPoints KMeans::getInitialCenters(const Dataset& dataset) const {
+DataPoints KMeans::getInitialCenters(const Dataset& dataset, int numOfClusters) const {
     switch (m_initMethod) {
         case InitMethod::RandomInit:      
-            return dataset.getRandomClusterCenters(m_config.numOfClusters);
+            return dataset.getRandomClusterCenters(numOfClusters);
         case InitMethod::RandomPartition: 
-            return dataset.getRandomPartitionCenters(m_config.numOfClusters);
+            return dataset.getRandomPartitionCenters(numOfClusters);
         default:
             std::cerr << "Error: Invalid initialization method.\n";
             std::exit(EXIT_FAILURE);
@@ -117,35 +118,48 @@ std::string KMeans::getInitMethod() const {
 }
 
 void KMeans::run(const Dataset& dataset) {
+    int maxClusters = dataset.getKMax();
     int dimensions = dataset.getDimensions();
     const auto& points = dataset.getDataPoints();
-    m_clusterCenters = getInitialCenters(dataset);
     std::vector<int> clusterCenterIndices(points.size());
-    std::vector<InitPerformace> results;
 
-    for (int run = 0; run < m_config.numOfRuns; run++) {
+    for (int numOfClusters = Config::MIN_CLUSTERS; numOfClusters <= maxClusters; numOfClusters++) { 
 
-        if (run > 0) m_clusterCenters = getInitialCenters(dataset);
+        m_clusterCenters = getInitialCenters(dataset, numOfClusters);
+        KMeansResult kMeansResult;
 
-        // before clustering phase, measure performance of initial cluster centers
-        double runInitialSSE = assignPointsAndComputeSSE(points, clusterCenterIndices);
+        for (int run = 0; run < m_config.numOfRuns; run++) {
 
-        int iteration = 0;
-        bool converged = false;
-        double sse = 0.0;
+            if (run > 0) m_clusterCenters = getInitialCenters(dataset, numOfClusters);
 
-        while (iteration < m_config.maxIterations && !converged) {
-            double newSSE = assignPointsAndComputeSSE(points, clusterCenterIndices);
-            updateClusterCenters(clusterCenterIndices, points, dimensions);
+            int iteration = 0;
+            bool converged = false;
+            double sse = 0.0;
 
-            if (iteration > 0) {
-                converged = (sse - newSSE) / sse < m_config.convergenceThreshold;
+            while (iteration < m_config.maxIterations && !converged) {
+                double newSSE = assignPointsAndComputeSSE(points, clusterCenterIndices);
+                updateClusterCenters(clusterCenterIndices, points, dimensions, numOfClusters);
+
+                if (iteration > 0) {
+                    converged = (sse - newSSE) / sse < m_config.convergenceThreshold;
+                }
+                sse = newSSE;
+                iteration++;
             }
-            sse = newSSE;
-            iteration++;
-        }
-        results.push_back({ getInitMethod(), runInitialSSE, sse, iteration });
-    }
 
-    m_bestPerformance = computeBestPerformance(results);
+            if (sse < kMeansResult.bestSSE || run == 0) {
+                kMeansResult.bestSSE = sse;
+                kMeansResult.bestCenters = m_clusterCenters;
+                kMeansResult.bestClusterAssignments = clusterCenterIndices;
+            }
+
+        }
+
+        kMeansResult.numOfClusters = numOfClusters;
+        kMeansResult.calinskiHarabaszIndex = dataset.calinskiHarabaszIndex(
+            kMeansResult.bestCenters, kMeansResult.bestClusterAssignments, kMeansResult.bestSSE);
+        kMeansResult.silhouetteWidth = dataset.silhouetteWidth(
+            kMeansResult.bestCenters, kMeansResult.bestClusterAssignments);
+        m_kResults.push_back(kMeansResult);
+    }
 }

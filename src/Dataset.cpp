@@ -136,6 +136,109 @@ void Dataset::normalize() {
     }
 }
 
+/* 
+https://dataminingbook.info/book_html/chap17/book.html 17.7
+CH(k) = tr(SB) / (k −1) tr(SW) / (n −k) = (n −k) / (k −1) * tr(SB) / tr(SW)
+SW: SSE
+SB: The sum of the diagonal elements
+*/
+double Dataset::calinskiHarabaszIndex(
+    const DataPoints& clusterCenters, 
+    const std::vector<int>& clusterAssignments,
+    double sse
+) const {
+    int numOfClusters = clusterCenters.size();
+    std::vector<double> meanOfDataSet(m_dimensions, 0.0);
+    std::vector<int> clusterSizes(numOfClusters, 0);
+    
+    if (sse == 0.0) return 0.0;
+
+    for (int dim = 0; dim < m_dimensions; dim++) {
+        for (const auto& point : m_dataPoints) {
+            meanOfDataSet[dim] += point[dim];
+        }
+        meanOfDataSet[dim] /= m_numOfPoints;
+    }
+
+    // grab cluster sizes for SB calculation. n,i is the number of points in cluster i
+    for (int assignment : clusterAssignments) {
+        clusterSizes[assignment]++;
+    }
+
+    double sb = 0.0;
+
+    for (int cluster = 0; cluster < numOfClusters; cluster++) {
+        for (int dim = 0; dim < m_dimensions; dim++) {
+            sb += clusterSizes[cluster] * (clusterCenters[cluster][dim] - meanOfDataSet[dim]) * (clusterCenters[cluster][dim] - meanOfDataSet[dim]);
+        }
+    }
+
+    return static_cast<double>(m_numOfPoints - numOfClusters) / (numOfClusters - 1) * sb / sse;
+}
+
+// https://dataminingbook.info/book_html/chap17/book.html pg. 446
+// s_i = (mu_out_min - mu_in) / max(mu_in, mu_out_min)
+// SC  = (1/n) * sum(s_i)
+double Dataset::silhouetteWidth(
+    const DataPoints& clusterCenters, 
+    const std::vector<int>& clusterAssignments
+) const {
+    
+    auto euclideanDistance = [&](int i, int j) {
+        double dist = 0.0;
+        for (int dim = 0; dim < m_dimensions; dim++) {
+            dist += (m_dataPoints[i][dim] - m_dataPoints[j][dim]) * (m_dataPoints[i][dim] - m_dataPoints[j][dim]);
+        }
+        return sqrt(dist);
+    };
+
+    int numOfClusters = clusterCenters.size();
+    std::vector<int> clusterSizes(numOfClusters, 0);
+
+    for (int assignment : clusterAssignments) {
+        clusterSizes[assignment]++;
+    }
+
+    double silhouetteWidth = 0.0;
+    // TODO: O(n^2), this can be optimized by precomputing distances
+    for (int pointIndex = 0; pointIndex < m_numOfPoints; pointIndex++) {
+        int cluster = clusterAssignments[pointIndex];
+        double meanDistanceToOwnCluster = 0.0;
+        std::vector<double> sumDistanceToOtherCluster(numOfClusters, 0.0);
+
+        for (int neighborIndex = 0; neighborIndex < m_numOfPoints; neighborIndex++) {
+            if (neighborIndex == pointIndex) continue;
+            
+            double distanceFromNeighbor = euclideanDistance(pointIndex, neighborIndex);
+
+            if (clusterAssignments[neighborIndex] == cluster) {
+                meanDistanceToOwnCluster += distanceFromNeighbor;
+            } else {
+                sumDistanceToOtherCluster[clusterAssignments[neighborIndex]] += distanceFromNeighbor;
+            }
+        }
+
+        if (clusterSizes[cluster] > 1) {
+            meanDistanceToOwnCluster /= (clusterSizes[cluster] - 1);
+        }
+
+        double minClusterDistance = std::numeric_limits<double>::max();
+        for (int i = 0; i < numOfClusters; i++) {
+            // only care for other clusters, not the one the point belongs to
+            if (i != cluster && clusterSizes[i] > 0) {
+                double meanDist = sumDistanceToOtherCluster[i] / clusterSizes[i];
+                if (meanDist < minClusterDistance) {
+                    minClusterDistance = meanDist;
+                }
+            }
+        }
+
+        // accumulate s_i for each point
+        silhouetteWidth += (minClusterDistance - meanDistanceToOwnCluster) / std::max(meanDistanceToOwnCluster, minClusterDistance);
+    }
+    // close to +1 indicates a good clustering and closer to -1 indicates it might be a bad clustering
+    return silhouetteWidth / m_numOfPoints;
+}
 
 void Dataset::printDataset() const {
     std::ofstream outFile(m_inputFile + "_normalized.txt");
