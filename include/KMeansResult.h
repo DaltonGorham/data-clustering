@@ -8,10 +8,9 @@
 #include <vector>
 
 struct KMeansResult {
-    int numOfClusters = 0;
-    double bestSSE = 0.0;
-    double calinskiHarabaszIndex = 0.0;
-    double silhouetteWidth = 0.0;
-    DataPoints bestCenters;
-    std::vector<int> bestClusterAssignments;
+    double sse = 0.0;
+    double randIndex = 0.0;
+    double jaccardIndex = 0.0;
+    DataPoints centers;
+    std::vector<int> clusterAssignments;
 };

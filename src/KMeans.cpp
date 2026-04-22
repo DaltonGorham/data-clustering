@@ -118,48 +118,36 @@ std::string KMeans::getInitMethod() const {
 }
 
 void KMeans::run(const Dataset& dataset) {
-    int maxClusters = dataset.getKMax();
+    int numOfClusters = dataset.getTrueNumOfClusters();
     int dimensions = dataset.getDimensions();
     const auto& points = dataset.getDataPoints();
     std::vector<int> clusterCenterIndices(points.size());
 
-    for (int numOfClusters = Config::MIN_CLUSTERS; numOfClusters <= maxClusters; numOfClusters++) { 
-
+    for (int run = 0; run < m_config.numOfRuns; run++) {
         m_clusterCenters = getInitialCenters(dataset, numOfClusters);
-        KMeansResult kMeansResult;
 
-        for (int run = 0; run < m_config.numOfRuns; run++) {
+        int iteration = 0;
+        bool converged = false;
+        double sse = 0.0;
 
-            if (run > 0) m_clusterCenters = getInitialCenters(dataset, numOfClusters);
+        while (iteration < m_config.maxIterations && !converged) {
+            double newSSE = assignPointsAndComputeSSE(points, clusterCenterIndices);
+            updateClusterCenters(clusterCenterIndices, points, dimensions, numOfClusters);
 
-            int iteration = 0;
-            bool converged = false;
-            double sse = 0.0;
-
-            while (iteration < m_config.maxIterations && !converged) {
-                double newSSE = assignPointsAndComputeSSE(points, clusterCenterIndices);
-                updateClusterCenters(clusterCenterIndices, points, dimensions, numOfClusters);
-
-                if (iteration > 0) {
-                    converged = (sse - newSSE) / sse < m_config.convergenceThreshold;
-                }
-                sse = newSSE;
-                iteration++;
+            if (iteration > 0) {
+                converged = (sse - newSSE) / sse < m_config.convergenceThreshold;
             }
-
-            if (sse < kMeansResult.bestSSE || run == 0) {
-                kMeansResult.bestSSE = sse;
-                kMeansResult.bestCenters = m_clusterCenters;
-                kMeansResult.bestClusterAssignments = clusterCenterIndices;
-            }
-
+            sse = newSSE;
+            iteration++;
         }
+        KMeansResult kMeansResult;
+        kMeansResult.sse = sse;
+        kMeansResult.centers = m_clusterCenters;
+        kMeansResult.clusterAssignments = clusterCenterIndices;
+        // randIndex and jaccardIndex will be stored here
 
-        kMeansResult.numOfClusters = numOfClusters;
-        kMeansResult.calinskiHarabaszIndex = dataset.calinskiHarabaszIndex(
-            kMeansResult.bestCenters, kMeansResult.bestClusterAssignments, kMeansResult.bestSSE);
-        kMeansResult.silhouetteWidth = dataset.silhouetteWidth(
-            kMeansResult.bestCenters, kMeansResult.bestClusterAssignments);
+        if (kMeansResult.randIndex > m_bestRandIndex) m_bestRandIndex = kMeansResult.randIndex;
+        if (kMeansResult.jaccardIndex > m_bestJaccardIndex) m_bestJaccardIndex = kMeansResult.jaccardIndex;
         m_kResults.push_back(kMeansResult);
     }
 }

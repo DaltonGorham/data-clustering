@@ -118,20 +118,18 @@ void Utilities::writeToCSV(const std::string& inputFile, const std::vector<InitP
     }
 }
 
-void Utilities::writeToCSV(const std::string& inputFile, const std::vector<KMeansResult>& results) {
-    std::string csvPath = "output/summary-2.csv";
+void Utilities::writeToCSV(const std::string& inputFile, double bestRandIndex, double bestJaccardIndex) {
+    std::string csvPath = "output/phase-5.csv";
     bool writeHeader = !fs::exists(csvPath);
 
     std::ofstream csv(csvPath, std::ios::app);
     if (writeHeader) {
-        csv << "Dataset,K,CH,SW\n";
+        csv << "Dataset,Rand,Jaccard\n";
     }
 
     fs::path inputPath(inputFile);
     std::string dataset = inputPath.stem().string();
-    for (const auto& r : results) {
-        csv << dataset << "," << r.numOfClusters << "," << doubleToStr(r.calinskiHarabaszIndex) << "," << doubleToStr(r.silhouetteWidth) << "\n";
-    }
+    csv << dataset << "," << doubleToStr(bestRandIndex) << "," << doubleToStr(bestJaccardIndex) << "\n";
 }
 
 // phase 2 output file writing.

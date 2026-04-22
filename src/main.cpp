@@ -17,5 +17,9 @@ int main(int argc, char* argv[]) {
     KMeans randomPartition(config, InitMethod::RandomPartition);
     randomPartition.run(dataset);
 
-    Utilities::writeToCSV(config.inputFile, randomPartition.getKMeansResults());
+    Utilities::writeToCSV(
+        config.inputFile,
+        randomPartition.getBestRandIndex(),
+        randomPartition.getBestJaccardIndex()
+    );
 }

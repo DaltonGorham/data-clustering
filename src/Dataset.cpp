@@ -18,35 +18,45 @@ Dataset FileParser::parseFileContents(const std::vector<std::string>& lines, con
         std::exit(EXIT_FAILURE);
     }
 
-    // we expect the first line to contain metadata: number of points and dimensions
+    // we expect the first line to contain metadata: num of points, dimensions + 1, true num of clusters
     std::istringstream headerStream(lines[0]);
-    int numOfPoints, dimensions;
-    headerStream >> numOfPoints >> dimensions;
+    int numOfPoints, actualDimensions, trueNumOfClusters;
+    headerStream >> numOfPoints >> actualDimensions >> trueNumOfClusters;
+    actualDimensions--; // header stores attributes + 1
 
-    if (numOfPoints <= 0 || dimensions <= 0) {
-        std::cerr << "Error: Invalid dataset metadata: number of points: " << numOfPoints 
-                  << ", dimensions: " << dimensions << " must be positive integers.\n";
+    if (numOfPoints <= 0 || actualDimensions <= 0 || trueNumOfClusters <= 0) {
+        std::cerr << "Error: Invalid dataset metadata: number of points: " << numOfPoints
+                  << ", dimensions: " << actualDimensions
+                  << ", true clusters: " << trueNumOfClusters << " must be positive integers.\n";
         std::exit(EXIT_FAILURE);
     }
 
     DataPoints dataPoints;
+    std::vector<int> trueClusterAssignments;
 
     for (const auto& line : lines | std::views::drop(1)) {
         std::istringstream lineStream(line);
         std::vector<double> point;
         double value;
         while (lineStream >> value) {
+            if (static_cast<int>(point.size()) == actualDimensions) {
+                trueClusterAssignments.push_back(static_cast<int>(value));
+                continue; // dont add the true cluster into the data point
+            }
             point.push_back(value);
         }
         dataPoints.push_back(point);
     }
 
-    if (dataPoints.size() != numOfPoints) {
-        std::cerr << "Error: Mismatch between declared number of points: " << numOfPoints 
+    if (static_cast<int>(dataPoints.size()) != numOfPoints) {
+        std::cerr << "Error: Mismatch between declared number of points: " << numOfPoints
                   << " and actual data points read: " << dataPoints.size() << "\n";
         std::exit(EXIT_FAILURE);
     }
-    return Dataset(numOfPoints, dimensions, dataPoints, inputFile);
+    return Dataset(
+        numOfPoints, actualDimensions, trueNumOfClusters,
+        trueClusterAssignments, dataPoints, inputFile
+    );
 }
 
 

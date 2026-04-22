@@ -39,7 +39,7 @@ class Utilities {
         static void validateArgs(int argc, char* argv[], int expectedArgs);
         static void writeToFile(const std::string& inputFile, const std::string& lines, const std::string& suffix);
         static void writeToCSV(const std::string& inputFile, const std::vector<InitPerformace>& results);
-        static void writeToCSV(const std::string& inputFile, const std::vector<KMeansResult>& results);
+        static void writeToCSV(const std::string& inputFile, double bestRandIndex, double bestJaccardIndex);
         static std::string doubleToStr(double value);
     private:
         static void validateNumberOfArgs(int argc, char* argv[], int expectedArgs);
