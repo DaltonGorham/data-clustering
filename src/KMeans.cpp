@@ -141,17 +141,19 @@ void KMeans::run(const Dataset& dataset) {
             iteration++;
         }
         
-        auto [rand, jaccard] = dataset.randAndJaccardIndex(clusterCenterIndices);
+        auto [rand, jaccard, fm] = dataset.externalValidityIndices(clusterCenterIndices);
         KMeansResult kMeansResult{
             .sse = sse,
             .randIndex = rand,
             .jaccardIndex = jaccard,
+            .fmIndex = fm,
             .centers = m_clusterCenters,
             .clusterAssignments = clusterCenterIndices,
         };
 
         if (kMeansResult.randIndex > m_bestRandIndex) m_bestRandIndex = kMeansResult.randIndex;
         if (kMeansResult.jaccardIndex > m_bestJaccardIndex) m_bestJaccardIndex = kMeansResult.jaccardIndex;
+        if (kMeansResult.fmIndex > m_bestFMIndex) m_bestFMIndex = kMeansResult.fmIndex;
         m_kResults.push_back(kMeansResult);
     }
 }

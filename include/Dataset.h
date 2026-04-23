@@ -10,6 +10,7 @@
 #include <set>
 #include <cmath>
 #include <utility>
+#include <tuple>
 
 using DataPoints = std::vector<std::vector<double>>;
 
@@ -41,5 +42,5 @@ class Dataset {
         DataPoints getRandomPartitionCenters(int numOfClusters) const;
         double calinskiHarabaszIndex(const DataPoints& clusterCenters, const std::vector<int>& clusterAssignments, double sse) const;
         double silhouetteWidth(const DataPoints& clusterCenters, const std::vector<int>& clusterAssignments) const;
-        std::pair<double, double> randAndJaccardIndex(const std::vector<int>& clusterAssignments) const;
+        std::tuple<double, double, double> externalValidityIndices(const std::vector<int>& clusterAssignments) const;
 };

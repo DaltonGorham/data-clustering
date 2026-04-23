@@ -11,6 +11,7 @@ struct KMeansResult {
     double sse = 0.0;
     double randIndex = 0.0;
     double jaccardIndex = 0.0;
+    double fmIndex = 0.0;
     DataPoints centers;
     std::vector<int> clusterAssignments;
 };

@@ -20,6 +20,7 @@ int main(int argc, char* argv[]) {
     Utilities::writeToCSV(
         config.inputFile,
         randomPartition.getBestRandIndex(),
-        randomPartition.getBestJaccardIndex()
+        randomPartition.getBestJaccardIndex(),
+        randomPartition.getBestFMIndex()
     );
 }

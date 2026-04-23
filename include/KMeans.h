@@ -24,6 +24,7 @@ class KMeans {
         DataPoints m_clusterCenters;
         double m_bestRandIndex = 0.0;
         double m_bestJaccardIndex = 0.0;
+        double m_bestFMIndex = 0.0;
 
         double getEuclideanDistance(const std::vector<double>&point, const std::vector<double>& centroid);
         void updateClusterCenters(std::vector<int>& clusterCenterIndices, const DataPoints& dataPoints, int dimensions, int numOfClusters);
@@ -41,4 +42,5 @@ class KMeans {
         const std::vector<KMeansResult>& getKMeansResults() const { return m_kResults; }
         double getBestRandIndex() const { return m_bestRandIndex; }
         double getBestJaccardIndex() const { return m_bestJaccardIndex; }
+        double getBestFMIndex() const { return m_bestFMIndex; }
 };

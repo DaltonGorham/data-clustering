@@ -118,18 +118,18 @@ void Utilities::writeToCSV(const std::string& inputFile, const std::vector<InitP
     }
 }
 
-void Utilities::writeToCSV(const std::string& inputFile, double bestRandIndex, double bestJaccardIndex) {
+void Utilities::writeToCSV(const std::string& inputFile, double bestRandIndex, double bestJaccardIndex, double bestFMIndex) {
     std::string csvPath = "output/phase-5.csv";
     bool writeHeader = !fs::exists(csvPath);
 
     std::ofstream csv(csvPath, std::ios::app);
     if (writeHeader) {
-        csv << "Dataset,Best Rand,Best Jaccard\n";
+        csv << "Dataset,Best Rand,Best Jaccard,Best FM\n";
     }
 
     fs::path inputPath(inputFile);
     std::string dataset = inputPath.stem().string();
-    csv << dataset << "," << doubleToStr(bestRandIndex) << "," << doubleToStr(bestJaccardIndex) << "\n";
+    csv << dataset << "," << doubleToStr(bestRandIndex) << "," << doubleToStr(bestJaccardIndex) << "," << doubleToStr(bestFMIndex) << "\n";
 }
 
 // phase 2 output file writing.
