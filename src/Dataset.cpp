@@ -250,16 +250,26 @@ double Dataset::silhouetteWidth(
     return silhouetteWidth / m_numOfPoints;
 }
 
+// https://dataminingbook.info/book_html/chap17/book.html pg. 436-437
+std::pair<double, double> Dataset::randAndJaccardIndex(const std::vector<int>& clusterAssignments) const {
+    int truePositive = 0, falseNegative = 0, falsePositive = 0, trueNegative = 0;
+    int numOfPairs = m_numOfPoints * (m_numOfPoints - 1) / 2;
+    
+    for (int i = 0; i < m_numOfPoints; i++) {
+        for (int j = i + 1; j < m_numOfPoints; j++) {
+            bool sameClusterAssignment = (clusterAssignments[i] == clusterAssignments[j]);
+            bool sameTrueCluster = (m_trueClusterAssignments[i] == m_trueClusterAssignments[j]);
 
-double Dataset::randIndex(const std::vector<int>& clusterAssignments) const {
-    // todo
-    return 0.0;
-}
+            if (sameClusterAssignment && sameTrueCluster) truePositive++;
+            else if (!sameClusterAssignment && sameTrueCluster) falseNegative++;
+            else if (sameClusterAssignment && !sameTrueCluster) falsePositive++;
+            else trueNegative++;
+        }
+    }
 
-
-double Dataset::jaccardIndex(const std::vector<int>& clusterAssignments) const {
-    // todo
-    return 0.0;
+    double rand = static_cast<double>(truePositive + trueNegative) / numOfPairs;
+    double jaccard = static_cast<double>(truePositive) / (truePositive + falseNegative + falsePositive);
+    return {rand, jaccard};
 }
 
 void Dataset::printDataset() const {

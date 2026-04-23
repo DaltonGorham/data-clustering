@@ -140,10 +140,12 @@ void KMeans::run(const Dataset& dataset) {
             sse = newSSE;
             iteration++;
         }
+        
+        auto [rand, jaccard] = dataset.randAndJaccardIndex(clusterCenterIndices);
         KMeansResult kMeansResult{
             .sse = sse,
-            .randIndex = dataset.randIndex(clusterCenterIndices),
-            .jaccardIndex = dataset.jaccardIndex(clusterCenterIndices),
+            .randIndex = rand,
+            .jaccardIndex = jaccard,
             .centers = m_clusterCenters,
             .clusterAssignments = clusterCenterIndices,
         };

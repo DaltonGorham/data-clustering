@@ -124,7 +124,7 @@ void Utilities::writeToCSV(const std::string& inputFile, double bestRandIndex, d
 
     std::ofstream csv(csvPath, std::ios::app);
     if (writeHeader) {
-        csv << "Dataset,Rand,Jaccard\n";
+        csv << "Dataset,Best Rand,Best Jaccard\n";
     }
 
     fs::path inputPath(inputFile);

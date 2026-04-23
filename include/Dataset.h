@@ -9,6 +9,7 @@
 #include <string>
 #include <set>
 #include <cmath>
+#include <utility>
 
 using DataPoints = std::vector<std::vector<double>>;
 
@@ -40,6 +41,5 @@ class Dataset {
         DataPoints getRandomPartitionCenters(int numOfClusters) const;
         double calinskiHarabaszIndex(const DataPoints& clusterCenters, const std::vector<int>& clusterAssignments, double sse) const;
         double silhouetteWidth(const DataPoints& clusterCenters, const std::vector<int>& clusterAssignments) const;
-        double randIndex(const std::vector<int>& clusterAssignments) const;
-        double jaccardIndex(const std::vector<int>& clusterAssignments) const;
+        std::pair<double, double> randAndJaccardIndex(const std::vector<int>& clusterAssignments) const;
 };
